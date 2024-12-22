@@ -1,29 +1,60 @@
-<div class="min-h-screen bg-gradient-to-b from-primary from-40% to-white relative overflow-hidden">
-    <!-- Contenu principal -->
+<div class="bg-gradient-to-b from-primary from-40% to-primary/50 relative overflow-hidden px-10">
     <div class="relative z-10">
-        <div class="max-w-6xl mx-auto px-4 pt-32 pb-24">
+        <div class="max-w-6xl mx-auto pt-32 pb-12"> 
             <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-5xl sm:text-6xl md:text-7xl font-black text-white mb-4">
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-black text-white mb-4">
                     Jtelavaisdit
                 </h1>
-
                 <p class="text-xl md:text-2xl font-light text-white mb-4">
                     Les sceptiques vont <span class="font-bold">détester</span>.
                     Toi tu vas <span class="font-bold">adorer</span>.
                 </p>
             </div>
-
-            <!-- Cards -->
-            <div class="grid md:grid-cols-3 gap-6 mt-24">
+            <div class="grid lg:grid-cols-3 gap-6 mt-24">
                 <homepage-card [title]="'Créé.'" [text]="'Une affirmation qui décrit, d’après toi, ce qui va se produire'" />
-                <homepage-card [title]="'Révèle.'" [text]="'Ton affirmation en temps voulu et aux personnes de ton choix'"/>
-                <homepage-card [title]="'Célèbre.'" [text]="'Pavane-toi sans vergogne avec un beau “j’te l’avais dit !”'" />
+                <homepage-card [title]="'Révèle.'" [text]="'Ton affirmation en temps voulu et aux personnes de ton choix'" />
+                <homepage-card [title]="'Célèbre.'" [text]="'Tu peux te pavaner sans vergogne et glisser un délicat “j’te l’avais dit !”'" />
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Wavy separation -->
-    <div class="h-96 bg-gradient-to-b from-white/30 from-40% to-white clip-wave">
+<div class="h-24 sm:h-52 bg-gradient-to-b from-primary/50 to-white"></div>
+
+
+<div class="px-12 mb-24">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-24 mt-24 items-center">
+            <div class="md:pl-12">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-12">Pourquoi nous avons imaginé jtelavaisdit ?</h2>
+
+                <p class="mb-6 leading-7">Entre amis, collègues ou en famille, nous aimons prédire des événements, affirmer des choses avec conviction, sur un ton
+                léger, joueur ou plus sérieusement : « Tu vas voir, ça va arriver exactement comme ça ! » ou encore « Je te parie que
+                dans un mois, ceci va arriver ! ».</p>
+
+                <p class="mb-6 leading-7">
+                    Sauf que parfois, au moment où quelque chose arrive vraiment, il peut être difficile de se souvenir exactement de ce que
+                    nous avons dit ou de prouver que nous avions raison. C’est là que jtelavaisdit entre en jeu : vos affirmations sont
+                    datées, conservées et garanties infalsifiables.
+                </p> 
+            </div>
+            <div class="flex flex-col md:pr-12">
+                    <div class="bg-white border border-lightgray p-8 rounded-2xl w-full sm:w-3/4 mb-6 sm:mb-0">
+                        <div class="flex flex-row mb-12 items-center">
+                            <h3 class="basis-1/2 text-2xl font-semibold">Planifiez.</h3>
+                            <fa-icon class="basis-1/2 text-right" [icon]="faCalendar" size="2x" [style]="{color: '#673DE5'}"></fa-icon>
+                        </div>
+                        <p>Vos affirmations peuvent être révélées à la date de votre choix. Même plus besoin d’y penser, vous êtes averti.e lorsqu’elles sont révélées.</p>
+                    </div>
+                
+                    <div class="bg-white border border-lightgray p-8 rounded-2xl w-full sm:w-3/4 sm:-mt-6 ml-0 sm:ml-28">
+                        <div class="flex flex-row mb-12 items-center">
+                            <h3 class="basis-1/2 text-2xl font-semibold">Partagez.</h3>
+                            <fa-icon class="basis-1/2 text-right" [icon]="faPaperPlane" size="2x" [style]="{color: '#673DE5'}"></fa-icon>
+                        </div>
+                        <p>Vous pouvez garder vos affirmations rien que pour vous, ou bien définir une liste de destinataires grâce à leurs adresses e-mail.</p>
+                    </div>
+            </div>
+        </div>
     </div>
-
 </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CardComponent } from './components/card/card.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCalendar, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
@@ -12,4 +12,9 @@ import { faCalendar, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 export class HomepageComponent {
   faCalendar = faCalendar;
   faPaperPlane = faPaperPlane;
+
+  scroll() {
+    const destination = document.getElementById('scroll-anchor');
+    if (destination) destination.scrollIntoView({ behavior: 'smooth' });
+  }
 }

@@ -1,0 +1,29 @@
+<div class="min-h-screen bg-gradient-to-b from-primary from-40% to-white relative overflow-hidden">
+    <!-- Contenu principal -->
+    <div class="relative z-10">
+        <div class="max-w-6xl mx-auto px-4 pt-32 pb-24">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-5xl sm:text-6xl md:text-7xl font-black text-white mb-4">
+                    Jtelavaisdit
+                </h1>
+
+                <p class="text-xl md:text-2xl font-light text-white mb-4">
+                    Les sceptiques vont <span class="font-bold">détester</span>.
+                    Toi tu vas <span class="font-bold">adorer</span>.
+                </p>
+            </div>
+
+            <!-- Cards -->
+            <div class="grid md:grid-cols-3 gap-6 mt-24">
+                <homepage-card [title]="'Créé.'" [text]="'Une affirmation qui décrit, d’après toi, ce qui va se produire'" />
+                <homepage-card [title]="'Révèle.'" [text]="'Ton affirmation en temps voulu et aux personnes de ton choix'"/>
+                <homepage-card [title]="'Célèbre.'" [text]="'Pavane-toi sans vergogne avec un beau “j’te l’avais dit !”'" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Wavy separation -->
+    <div class="h-96 bg-gradient-to-b from-white/30 from-40% to-white clip-wave">
+    </div>
+
+</div>

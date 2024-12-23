@@ -1,3 +1,4 @@
+<!-- Intro -->
 <div class="bg-gradient-to-b from-primary from-40% to-primary/50 relative overflow-hidden px-10">
     <div class="relative z-10">
         <div class="max-w-6xl mx-auto pt-32 pb-12"> 
@@ -34,6 +35,7 @@
 
 <div class="h-24 sm:h-48 bg-gradient-to-b from-primary/50 to-white"></div>
 
+<!-- Pourquoi ? -->
 <div class="px-12 mb-24">
     <div class="max-w-6xl mx-auto">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 mt-24 lg:mt-48 items-center">
@@ -82,7 +84,7 @@
         <div class="w-36 h-36 bg-gradient-to-b from-primary/20 from-40% to-primary/5 rounded-full -mb-20ml-28 sm:ml-80 lg:-mt-12 lg:-ml-64"></div>
         <h2 class="text-3xl md:text-4xl font-extrabold mb-12 w-3/4 text-center">Exprimez vos intuitions. Créez des situations mémorables et amusantes.</h2>
         <p class="w-3/5 text-center">Transformez vos prédictions en une expérience interactive et amusante. Créez vos affirmations et révélez-les au bon moment pour surprendre vos proches. Avec jtelavaisdit, découvrez une façon ludique de dire... j’te l’avais dit. </p>
-        <button class="bg-transparent text-primary border border-primary rounded px-8 py-4 mt-12 text-center font-medium 
+        <button (click)="auth.isAuthenticated() ? navigateToStatements() : register()" class="bg-transparent text-primary border border-primary rounded px-8 py-4 mt-12 text-center font-medium 
             transition-all duration-200 ease-in-out 
             hover:bg-gradient-to-br hover:from-start-gradient  hover:to-end-gradient hover:text-white">
             {{ auth.isAuthenticated() ? "Créer une affirmation" : "S'enregistrer gratuitement" }}
@@ -96,6 +98,7 @@
     </svg>
   </div>
 
+<!-- Affirmations -->
 <div class="bg-gradient-to-b from-primary from-40% to-primary/10 relative overflow-hidden px-10">
     <div class="relative z-10">
         <div class="max-w-6xl mx-auto pt-24 sm:pt-48 pb-12"> 
@@ -109,37 +112,18 @@
             </div>
             <div class="w-36 h-36 bg-gradient-to-b from-start-gradient/60 to-primary rounded-full ml-16 -mb-16 sm:ml-24 sm:-mb-24 lg:-mb-16 lg:ml-36"></div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <homepage-icon-card [title]="'Suivi des révélations.'" 
+                    [text]="'Suivez le temps restant avant que vos affirmations ne soient révélées à vos destinataires.'" 
+                    [icon]="faClock"></homepage-icon-card>
 
-                <div class="bg-gradient-to-b from-start-gradient from-40% to-end-gradient p-8 rounded-2xl text-white">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-2xl font-bold w-2/3">Suivi des révélations.</h3>
-                        <fa-icon class="basis-1/2 text-right text-white/80" [icon]="faClock" size="3x" ></fa-icon>
-                    </div>
-                    <p class="text-white font-light mt-12">
-                        Suivez le temps restant avant que vos affirmations ne soient révélées à vos destinataires.
-                    </p>
-                </div>
-
-                <div class="bg-gradient-to-b from-start-gradient from-40% to-end-gradient p-8 rounded-2xl text-white">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-2xl font-bold w-2/3">Archivez vos affirmations.</h3>
-                        <fa-icon class="basis-1/2 text-right text-white/80" [icon]="faFolder" size="3x" ></fa-icon>
-                    </div>
-                    <p class="text-white font-light mt-12">
-                        Automatiquement une fois révélées ou manuellement lorsqu’elles ne sont plus d’actualité.
-                    </p>
-                </div>
+                <homepage-icon-card [title]="'Archivez vos affirmations.'"
+                    [text]="'Automatiquement une fois révélées ou manuellement lorsqu’elles ne sont plus d’actualité.'"
+                    [icon]="faFolder"></homepage-icon-card>
 
                 <div class="flex justify-center md:col-span-2 lg:col-span-1 z-10">
-                    <div class="bg-gradient-to-b from-start-gradient from-40% to-end-gradient p-8 rounded-2xl text-white">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-2xl font-bold w-2/3">Suivi de vos métriques.</h3>
-                            <fa-icon class="basis-1/2 text-right text-white/80" [icon]="faChartLine" size="3x" ></fa-icon>
-                        </div>
-                        <p class="text-white font-light mt-12">
-                            Gardez un oeil sur vos métriques grâce à une intégration simplifiée dans votre tableau de bord.
-                        </p>
-                    </div>
+                    <homepage-icon-card [title]="'Suivi de vos métriques.'"
+                        [text]="'Gardez un oeil sur vos métriques grâce à une intégration simplifiée dans votre tableau de bord.'"
+                        [icon]="faChartLine"></homepage-icon-card>
                 </div>
             </div>
             <div class="flex flex-row-reverse">
@@ -151,6 +135,7 @@
 
 <div class="h-24 sm:h-48 bg-gradient-to-b from-primary/10 to-white"></div>
 
+<!-- FAQ -->
 <div class="relative z-10 px-10">
     <div class="max-w-6xl mx-auto pb-24"> 
         <div class="flex flex-row items-center mb-16 lg:mb-24 lg:pl-12">
@@ -160,19 +145,37 @@
         </div>
 
         <div class="lg:px-12">
-            <div *ngFor="let accordion of accordions; let i = index">
-                <!-- Titre de l'accordéon -->
-                <button
-                    class="w-full text-left px-4 py-6 lg:p-8 bg-white border-t font-semibold"
-                    (click)="toggleAccordion(i)">
-                    {{ accordion.title }}
+            @for (question of questions; track question.id; let idx = $index) {
+                <button class="w-full text-left px-4 py-6 lg:p-8 bg-white border-t font-semibold" (click)="toggleQuestionAccordion(idx)">
+                    <div class="flex">
+                        <fa-icon class="text-primary mr-4" [icon]="question.isOpen ? faChevronUp : faChevronDown " size="sm"></fa-icon><p>{{ question.title }}</p>
+                    </div>
                 </button>
 
-                <!-- Contenu de l'accordéon -->
-                <div *ngIf="accordion.isOpen" class=" p-4 pb-8 lg:px-8 lg:pb-8 transition-all duration-300 ease-in-out">
-                    <p>{{ accordion.content }}</p>
-                </div>
-            </div>
+                @if (question.isOpen) {
+                    <div class="p-4 pb-8 lg:px-8 lg:pb-8 transition-all duration-300 ease-in-out">
+                        <p>{{ question.content }}</p>
+                        @if (question.link) {
+                           <p class="mt-6"><span class="font-semibold">Lien utile</span> : <a [routerLink]="question.link" class="underline text-primary">{{question.linkDescription}}</a></p> 
+                        }
+                    </div>
+                }
+            }        
         </div>
+    </div>
+</div>
+
+<div class="max-w-6xl mx-auto mt-12 mb-24 md:mb-48">
+    <div class="flex flex-col items-center">
+        <div
+            class="w-36 h-36 bg-gradient-to-b from-primary/20 from-40% to-primary/5 rounded-full -mb-20 ml-28 sm:ml-80 lg:-mt-12 lg:-ml-64">
+        </div>
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-12 w-3/4 text-center">Le fonctionnement de jtelavaisdit n'est pas <span class="bg-gradient-to-b from-start-gradient to-end-gradient/60 inline-block text-transparent bg-clip-text">encore</span> clair pour vous ?</h2>
+        <p class="w-3/5 text-center">Aucun soucis. Nous sommes à votre disposition pour répondre à vos questions. N'hésitez pas à prendre contact avec nous et à nous détailler vos interrogations. Nous vous invitons également à essayer de manipuler l'application pour mieux l'appréhender.</p>
+        <button (click)="navigateToContact()" class="bg-transparent text-primary border border-primary rounded px-8 py-4 mt-12 text-center font-medium 
+            transition-all duration-200 ease-in-out 
+            hover:bg-gradient-to-br hover:from-start-gradient  hover:to-end-gradient hover:text-white">
+            Nous contacter
+        </button>
     </div>
 </div>

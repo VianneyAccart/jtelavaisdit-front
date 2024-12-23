@@ -5,10 +5,10 @@
                 <h1 class="text-4xl sm:text-6xl md:text-7xl font-black text-white mb-4">
                     Jtelavaisdit
                 </h1>
-                <p class="text-xl md:text-2xl font-light text-white mb-4">
+                <h2 class="text-xl md:text-2xl font-light text-white mb-4">
                     Les sceptiques vont <span class="font-bold">détester</span>.
                     Toi tu vas <span class="font-bold">adorer</span>.
-                </p>
+                </h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-24">
                 <homepage-card [title]="'Créé.'" [text]="'Une affirmation qui décrit, d’après toi, ce qui va se produire'" />
@@ -36,7 +36,7 @@
 
 <div class="px-12 mb-24">
     <div class="max-w-6xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 mt-24 items-center">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 mt-24 lg:mt-48 items-center">
             <div id="scroll-anchor" class="lg:pl-12">
                 <h2 class="text-3xl md:text-4xl font-extrabold mb-12">Pourquoi nous avons imaginé jtelavaisdit ?</h2>
 
@@ -57,7 +57,7 @@
                     <div class="bg-white border border-lightgray p-8 rounded-2xl w-full sm:w-3/4 mb-6 sm:mb-0 z-10">
                         <div class="flex flex-row mb-12 items-center">
                             <h3 class="basis-1/2 text-2xl font-semibold">Planifiez.</h3>
-                            <fa-icon class="basis-1/2 text-right" [icon]="faCalendar" size="2x" [style]="{color: '#673DE5'}"></fa-icon>
+                            <fa-icon class="basis-1/2 text-right text-primary" [icon]="faCalendar" size="2x"></fa-icon>
                         </div>
                         <p>Vos affirmations peuvent être révélées à la date de votre choix. Même plus besoin d’y penser, vous êtes averti.e lorsqu’elles sont révélées.</p>
                     </div>                
@@ -65,7 +65,7 @@
                     <div class="bg-white border border-lightgray p-8 rounded-2xl w-full sm:w-3/4 sm:-mt-6 ml-0 sm:ml-32 md:ml-36 lg:ml-24 z-10">
                         <div class="flex flex-row mb-12 items-center">
                             <h3 class="basis-1/2 text-2xl font-semibold">Partagez.</h3>
-                            <fa-icon class="basis-1/2 text-right" [icon]="faPaperPlane" size="2x" [style]="{color: '#673DE5'}"></fa-icon>
+                            <fa-icon class="basis-1/2 text-right text-primary" [icon]="faPaperPlane" size="2x"></fa-icon>
                         </div>
                         <p>Vous pouvez garder vos affirmations rien que pour vous, ou bien définir une liste de destinataires grâce à leurs adresses e-mail.</p>
                     </div>
@@ -73,6 +73,106 @@
                 <div class="w-24 h-24 bg-gradient-to-b from-primary/50 from-40% to-primary/20 rounded-full -mt-12 ml-12 sm:ml-24 lg:-mt-12 lg:ml-12"></div>
             </div>
             
+        </div>
+    </div>
+</div>
+
+<div class="max-w-6xl mx-auto my-24 md:mt-64 md:mb-48">
+    <div class="flex flex-col items-center">
+        <div class="w-36 h-36 bg-gradient-to-b from-primary/20 from-40% to-primary/5 rounded-full -mb-20ml-28 sm:ml-80 lg:-mt-12 lg:-ml-64"></div>
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-12 w-3/4 text-center">Exprimez vos intuitions. Créez des situations mémorables et amusantes.</h2>
+        <p class="w-3/5 text-center">Transformez vos prédictions en une expérience interactive et amusante. Créez vos affirmations et révélez-les au bon moment pour surprendre vos proches. Avec jtelavaisdit, découvrez une façon ludique de dire... j’te l’avais dit. </p>
+        <button class="bg-transparent text-primary border border-primary rounded px-8 py-4 mt-12 text-center font-medium 
+            transition-all duration-200 ease-in-out 
+            hover:bg-gradient-to-br hover:from-start-gradient  hover:to-end-gradient hover:text-white">
+            {{ auth.isAuthenticated() ? "Créer une affirmation" : "S'enregistrer gratuitement" }}
+        </button>
+    </div>
+</div>
+
+<div class="wave-divider bg-primary">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-white bg-white"></path>
+    </svg>
+  </div>
+
+<div class="bg-gradient-to-b from-primary from-40% to-primary/10 relative overflow-hidden px-10">
+    <div class="relative z-10">
+        <div class="max-w-6xl mx-auto pt-24 sm:pt-48 pb-12"> 
+            <div class="flex flex-row items-center mb-12 sm:mb-24">
+                <h2 class="basis-2/3 sm:basis-2/5 text-3xl md:text-4xl font-extrabold text-white lg:pl-12">
+                    Gérez vos affirmations d'une main de maître.
+                </h2>
+                <div class="flex flex-row-reverse">
+                    <div class="w-12 h-12 bg-gradient-to-b from-start-gradient/70 to-primary rounded-full mr-8 sm:mr-24 lg:mr-64"></div>
+                </div>
+            </div>
+            <div class="w-36 h-36 bg-gradient-to-b from-start-gradient/60 to-primary rounded-full ml-16 -mb-16 sm:ml-24 sm:-mb-24 lg:-mb-16 lg:ml-36"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="bg-gradient-to-b from-start-gradient from-40% to-end-gradient p-8 rounded-2xl text-white">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-bold w-2/3">Suivi des révélations.</h3>
+                        <fa-icon class="basis-1/2 text-right text-white/80" [icon]="faClock" size="3x" ></fa-icon>
+                    </div>
+                    <p class="text-white font-light mt-12">
+                        Suivez le temps restant avant que vos affirmations ne soient révélées à vos destinataires.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-b from-start-gradient from-40% to-end-gradient p-8 rounded-2xl text-white">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-bold w-2/3">Archivez vos affirmations.</h3>
+                        <fa-icon class="basis-1/2 text-right text-white/80" [icon]="faFolder" size="3x" ></fa-icon>
+                    </div>
+                    <p class="text-white font-light mt-12">
+                        Automatiquement une fois révélées ou manuellement lorsqu’elles ne sont plus d’actualité.
+                    </p>
+                </div>
+
+                <div class="flex justify-center md:col-span-2 lg:col-span-1 z-10">
+                    <div class="bg-gradient-to-b from-start-gradient from-40% to-end-gradient p-8 rounded-2xl text-white">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-2xl font-bold w-2/3">Suivi de vos métriques.</h3>
+                            <fa-icon class="basis-1/2 text-right text-white/80" [icon]="faChartLine" size="3x" ></fa-icon>
+                        </div>
+                        <p class="text-white font-light mt-12">
+                            Gardez un oeil sur vos métriques grâce à une intégration simplifiée dans votre tableau de bord.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-row-reverse">
+                <div class="w-12 h-12 md:w-36 md:h-36 bg-gradient-to-b from-primary/80 to-end-gradient/20 rounded-full  mt-8 mr-8 md:mt-16 md:mr-24"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="h-24 sm:h-48 bg-gradient-to-b from-primary/10 to-white"></div>
+
+<div class="relative z-10 px-10">
+    <div class="max-w-6xl mx-auto pb-24"> 
+        <div class="flex flex-row items-center mb-16 lg:mb-24 lg:pl-12">
+            <h2 class="basis-2/3 sm:basis-2/5 text-3xl md:text-4xl font-extrabold">
+                Questions fréquemment posées.
+            </h2>
+        </div>
+
+        <div class="lg:px-12">
+            <div *ngFor="let accordion of accordions; let i = index">
+                <!-- Titre de l'accordéon -->
+                <button
+                    class="w-full text-left px-4 py-6 lg:p-8 bg-white border-t font-semibold"
+                    (click)="toggleAccordion(i)">
+                    {{ accordion.title }}
+                </button>
+
+                <!-- Contenu de l'accordéon -->
+                <div *ngIf="accordion.isOpen" class=" p-4 pb-8 lg:px-8 lg:pb-8 transition-all duration-300 ease-in-out">
+                    <p>{{ accordion.content }}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

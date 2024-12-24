@@ -1,9 +1,9 @@
+import { NgClass } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'homepage-icon-card',
-  imports: [FontAwesomeModule],
+  imports: [NgClass],
   templateUrl: './icon-card.component.html',
   styleUrl: './icon-card.component.css',
 })

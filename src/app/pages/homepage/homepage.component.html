@@ -10,6 +10,7 @@
                     Les sceptiques vont <span class="font-bold">détester</span>.
                     Vous allez <span class="font-bold">adorer</span>.
                 </h2>
+                
                 <div class="flex flex-row-reverse">
                     <div class="w-12 h-12 bg-gradient-to-b from-primary/30 from-40% to-primary/10 rounded-full -mt-20 ml-8 sm:ml-80 lg:-mt-20 lg:ml-48"></div>
                 </div>
@@ -64,7 +65,7 @@
                     <div class="bg-white border border-lightgray p-8 rounded-2xl w-full sm:w-3/4 mb-6 sm:mb-0 z-10">
                         <div class="flex flex-row mb-12 items-center">
                             <h3 class="basis-1/2 text-2xl font-semibold">Planifiez.</h3>
-                            <fa-icon class="basis-1/2 text-right text-primary" [icon]="faCalendar" size="2x"></fa-icon>
+                            <i class="bi bi-calendar-check basis-1/2 text-right text-primary text-3xl"></i> 
                         </div>
                         <p>Vos affirmations peuvent être révélées à la date de votre choix. Même plus besoin d’y penser, vous êtes averti.e lorsqu’elles sont révélées.</p>
                     </div>                
@@ -72,7 +73,7 @@
                     <div class="bg-white border border-lightgray p-8 rounded-2xl w-full sm:w-3/4 sm:-mt-6 ml-0 sm:ml-32 md:ml-36 lg:ml-24 z-10">
                         <div class="flex flex-row mb-12 items-center">
                             <h3 class="basis-1/2 text-2xl font-semibold">Partagez.</h3>
-                            <fa-icon class="basis-1/2 text-right text-primary" [icon]="faPaperPlane" size="2x"></fa-icon>
+                            <i class="bi bi-send basis-1/2 text-right text-primary text-3xl"></i> 
                         </div>
                         <p>Vous pouvez garder vos affirmations rien que pour vous, ou bien définir une liste de destinataires grâce à leurs adresses e-mail.</p>
                     </div>
@@ -119,16 +120,16 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <homepage-icon-card [title]="'Suivi des révélations.'" 
                     [text]="'Suivez le temps restant avant que vos affirmations ne soient révélées à vos destinataires.'" 
-                    [icon]="faClock"></homepage-icon-card>
+                    [icon]="'bi-clock'"></homepage-icon-card>
 
                 <homepage-icon-card [title]="'Archivez vos affirmations.'"
                     [text]="'Automatiquement une fois révélées ou manuellement lorsqu’elles ne sont plus d’actualité.'"
-                    [icon]="faFolder"></homepage-icon-card>
+                    [icon]="'bi-archive'"></homepage-icon-card>
 
                 <div class="flex justify-center md:col-span-2 lg:col-span-1 z-10">
                     <homepage-icon-card [title]="'Suivi de vos métriques.'"
                         [text]="'Gardez un oeil sur vos métriques grâce à une intégration simplifiée dans votre tableau de bord.'"
-                        [icon]="faChartLine"></homepage-icon-card>
+                        [icon]="'bi-graph-up'"></homepage-icon-card>
                 </div>
             </div>
             <div class="flex flex-row-reverse">
@@ -153,7 +154,7 @@
             @for (question of questions; track question.id; let idx = $index) {
                 <button class="w-full text-left px-4 py-6 lg:p-8 bg-white border-t font-semibold" (click)="toggleQuestionAccordion(idx)">
                     <div class="flex">
-                        <fa-icon class="text-primary mr-4" [icon]="question.isOpen ? faChevronUp : faChevronDown " size="sm"></fa-icon><p>{{ question.title }}</p>
+                        <i class="bi text-primary mr-4" [ngClass]="{'bi-chevron-up': question.isOpen, 'bi-chevron-down': !question.isOpen}"></i><p>{{ question.title }}</p>
                     </div>
                 </button>
 

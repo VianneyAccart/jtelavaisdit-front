@@ -1,9 +1,9 @@
-<nav class="h-16 px-6 lg:px-24 flex items-center justify-between bg-primary" [ngClass]="{'lg:fixed lg:top-0 lg:left-0 lg:right-0 lg:z-50' : authService.isAuthenticated()}">
+<nav class="h-16 px-6 lg:px-24 flex items-center justify-between bg-primary" [ngClass]="{'lg:fixed lg:top-0 lg:left-0 lg:right-0 lg:z-50 border-b border-white/20' : authService.isAuthenticated()}">
     <!-- Menu burger-->
     @if (authService.isAuthenticated()) {
         <div class="flex items-center gap-4 lg:hidden">
             <button class="lg:hidden text-primary" (click)="toggleLoggedMobileMenu()"aria-label="Menu">
-            <fa-icon [icon]="faBars" class="h-6 w-6 text-white"></fa-icon>
+            <i class="bi bi-list text-white text-2xl"></i> 
             </button>
         </div>
     }
@@ -16,12 +16,12 @@
         <div class="hidden md:flex items-center gap-4">
           <a 
             [routerLink]="PATH.LOGIN"
-            class="px-4 py-2 rounded-lg transition cursor-pointer text-white hover:text-white/80" (click)="fakeLogin()">
+            class="px-4 py-2 rounded cursor-pointer text-white hover:text-white/80 transition-all duration-200 ease-in-out">
             Se connecter
           </a>
           <a 
             [routerLink]="PATH.REGISTER"
-            class="px-4 py-2 rounded transition cursor-pointer bg-transparent text-white border border-white hover:text-white/80 hover:border-white/50">
+            class="px-4 py-2 rounded cursor-pointer bg-transparent text-white border border-white hover:text-white/80 hover:border-white/50 transition-all duration-200 ease-in-out">
             S'enregistrer
           </a>
         </div>
@@ -29,14 +29,10 @@
         <button 
           class="md:hidden"
           (click)="toggleNotLoggedMobileMenu()">
-          <fa-icon [icon]="faBars" class="h-6 w-6 text-white"></fa-icon>
+          <i class="bi bi-list text-white text-2xl"></i> 
         </button>
       } @else {
-        <button class="flex"
-          (click)="toggleUserMenu()">
-          <p class="hidden lg:block mr-2 text-white">Mon compte</p>
-          <fa-icon [icon]="faUser" class="h-6 w-6 text-white"></fa-icon>
-        </button>
+        <i class="bi bi-person-circle text-2xl text-white hover:text-white/80 transition-all duration-200 ease-in-out cursor-pointer" (click)="toggleUserMenu()"></i> 
       }
     </div>
 </nav>
@@ -54,14 +50,14 @@
     <div class="fixed right-0 top-0 w-72 bg-white h-full shadow-lg z-50">
         <div class="flex justify-end items-center h-16 pr-6 bg-primary-dark">
           <button (click)="closeAllMenus()">
-              <fa-icon [icon]="faCircleXmark" class="text-white" size="lg"></fa-icon>
+              <i class="bi bi-x text-white text-2xl"></i> 
           </button>
         </div>
         <div class="p-4">
           <nav class="mt-6">
             <ul>
-                <app-navlink [path]="PATH.LOGIN" [icon]="faArrowRightToBracket" [label]="'Se connecter'" (onLinkClick)='onLinkClick($event)'></app-navlink>
-                <app-navlink [path]="PATH.REGISTER" [icon]="faUser" [label]="'S\'enregistrer'" (onLinkClick)='onLinkClick($event)'></app-navlink>
+                <app-navlink [path]="PATH.LOGIN" [icon]="'bi-box-arrow-in-right'" [label]="'Se connecter'" (onLinkClick)='onLinkClick($event)'></app-navlink>
+                <app-navlink [path]="PATH.REGISTER" [icon]="'bi-person-add'" [label]="'S\'enregistrer'" (onLinkClick)='onLinkClick($event)'></app-navlink>
             </ul>
           </nav>
         </div>
@@ -73,7 +69,7 @@
     <div class="fixed right-0 top-0 w-72 bg-white h-full shadow-lg z-50">
         <div class="flex justify-end items-center h-16 pr-6 bg-primary-dark">
           <button (click)="closeAllMenus()">
-              <fa-icon [icon]="faCircleXmark" class="text-white" size="lg"></fa-icon> 
+            <i class="bi bi-x text-white text-2xl"></i> 
           </button>
         </div>
         <div class="p-4">
@@ -83,9 +79,9 @@
             </div>
             <nav class="mt-12">
                 <ul>
-                    <app-navlink [path]="PATH.ACCOUNT_INFORMATION" [icon]="faUser" [label]="'Mes informations'" (onLinkClick)='onLinkClick($event)'></app-navlink>
-                    <app-navlink [path]="PATH.ACCOUNT_SECURITY" [icon]="faShieldHalved" [label]="'Sécurité'" (onLinkClick)='onLinkClick($event)'></app-navlink>
-                    <app-navlink [icon]="faArrowRightFromBracket" [label]="'Déconnexion'" [isLogOut]="true" (onLinkClick)='onLinkClick($event)'></app-navlink>
+                    <app-navlink [path]="PATH.ACCOUNT_INFORMATION" [icon]="'bi-person-gear'" [label]="'Mes informations'" (onLinkClick)='onLinkClick($event)'></app-navlink>
+                    <app-navlink [path]="PATH.ACCOUNT_SECURITY" [icon]="'bi-shield-check'" [label]="'Sécurité'" (onLinkClick)='onLinkClick($event)'></app-navlink>
+                    <app-navlink [icon]="'bi-box-arrow-right'" [label]="'Déconnexion'" [isLogOut]="true" (onLinkClick)='onLinkClick($event)'></app-navlink>
                 </ul>
             </nav>
         </div>
@@ -97,7 +93,7 @@
     <div class="fixed left-0 top-0 w-72 bg-white h-full shadow-lg z-50">
       <div class="flex justify-between items-center h-16 pl-6 bg-primary-dark">
         <button (click)="closeAllMenus()">
-            <fa-icon [icon]="faCircleXmark" class="text-white" size="lg"></fa-icon>
+          <i class="bi bi-x text-white text-2xl"></i> 
         </button>
       </div>
       <div class="p-4">

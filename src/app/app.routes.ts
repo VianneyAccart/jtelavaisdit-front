@@ -5,6 +5,8 @@ import { StatementsComponent } from './pages/statements/statements.component';
 import { ArchivedStatementsComponent } from './pages/archived-statements/archived-statements.component';
 import { SecurityComponent } from './pages/security/security.component';
 import { AccountComponent } from './pages/account/account.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
 
 export enum ROUTES_PATH {
   HOME = '/',
@@ -41,6 +43,14 @@ export const routes: Routes = [
   {
     path: ROUTES_PATH.ACCOUNT_INFORMATION,
     component: AccountComponent,
+  },
+  {
+    path: ROUTES_PATH.REGISTER,
+    component: RegisterComponent,
+  },
+  {
+    path: ROUTES_PATH.LOGIN,
+    component: LoginComponent,
   },
   {
     path: '**',

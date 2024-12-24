@@ -1,11 +1,10 @@
 import { NgClass } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-navlink',
-  imports: [FontAwesomeModule, RouterLink, NgClass, RouterLinkActive],
+  imports: [RouterLink, NgClass, RouterLinkActive],
   templateUrl: './navlink.component.html',
   styleUrl: './navlink.component.css'
 })
@@ -23,5 +22,12 @@ export class NavlinkComponent {
     } else if (this.path() !== undefined) {
       this.onLinkClick.emit(this.path()!);
     }
+  }
+
+  getIconClasses() {
+    return {
+      [this.icon()]: true,
+      'text-red-600': this.isLogOut()
+    };
   }
 }

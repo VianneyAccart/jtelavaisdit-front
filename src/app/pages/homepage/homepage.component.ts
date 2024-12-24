@@ -1,17 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { CardComponent } from './components/card/card.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {
-  faCalendar,
-  faPaperPlane,
-  faClock,
-  faFolder,
-} from '@fortawesome/free-regular-svg-icons';
-import {
-  faChartLine,
-  faChevronDown,
-  faChevronUp,
-} from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../shared/services/auth.service';
 import { IconCardComponent } from './components/icon-card/icon-card.component';
 import { Router, RouterLink } from '@angular/router';
@@ -21,21 +9,15 @@ import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-homepage',
-  imports: [CardComponent, FontAwesomeModule, IconCardComponent, RouterLink, NgClass],
+  imports: [CardComponent, IconCardComponent, RouterLink, NgClass],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css',
 })
 export class HomepageComponent {
   protected authService = inject(AuthService);
-  #router = inject(Router);
+  #routerService = inject(Router);
 
-  faCalendar = faCalendar;
-  faPaperPlane = faPaperPlane;
-  faClock = faClock;
-  faFolder = faFolder;
-  faChartLine = faChartLine;
-  faChevronDown = faChevronDown;
-  faChevronUp = faChevronUp;
+  protected PATH = ROUTES_PATH;
 
   questions: Question[] = [
     {
@@ -120,10 +102,12 @@ export class HomepageComponent {
   }
 
   register() {
-    this.#router.navigate(['/register']);
+    this.#routerService.navigate([this.PATH.REGISTER]);
   }
 
-  navigateToStatements() {}
+  navigateToStatements() {
+    this.#routerService.navigate([this.PATH.ACCOUNT_STATEMENTS]);
+  }
 
   navigateToContact() {}
 }

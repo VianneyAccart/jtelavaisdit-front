@@ -9,4 +9,12 @@ export class AuthService {
   isAuthenticated() {
     return false;
   }
+
+  getUser() {
+    return {
+      id: '1',
+      email: 'vianneyaccart@gmail.com',
+      name: 'Vianney Accart',
+    };
+  }
 }

@@ -1,0 +1,113 @@
+<nav class="h-16 px-6 lg:px-24 flex items-center justify-between bg-primary">
+    <!-- Menu burger-->
+    @if (authService.isAuthenticated()) {
+        <div class="flex items-center gap-4 lg:hidden">
+            <button class="lg:hidden text-primary" (click)="toggleLoggedMobileMenu()"aria-label="Menu">
+            <fa-icon [icon]="faBars" class="h-6 w-6 text-white"></fa-icon>
+            </button>
+        </div>
+    }
+
+    <a [routerLink]="PATH.HOME" class="text-xl font-black text-white cursor-pointer">jtelavaisdit.</a>
+
+    <div class="flex items-center gap-4">
+      @if (!authService.isAuthenticated()) {
+        <!-- Version desktop -->
+        <div class="hidden md:flex items-center gap-4">
+          <a 
+            [routerLink]="PATH.LOGIN"
+            class="px-4 py-2 rounded-lg transition cursor-pointer text-white hover:text-white/80">
+            Se connecter
+          </a>
+          <a 
+            [routerLink]="PATH.REGISTER"
+            class="px-4 py-2 rounded transition cursor-pointer bg-transparent text-white border border-white hover:text-white/80 hover:border-white/50">
+            S'enregistrer
+          </a>
+        </div>
+        <!-- Version mobile -->
+        <button 
+          class="md:hidden"
+          (click)="toggleNotLoggedMobileMenu()">
+          <fa-icon [icon]="faBars" class="h-6 w-6 text-white"></fa-icon>
+        </button>
+      } @else {
+        <button class="flex"
+          (click)="toggleUserMenu()">
+          <p class="hidden lg:block mr-2 text-white">Mon compte</p>
+          <fa-icon [icon]="faUser" class="h-6 w-6 text-white"></fa-icon>
+        </button>
+      }
+    </div>
+</nav>
+
+  <!-- Overlay pour mobile uniquement -->
+  @if (isMobileMenuOpen || isMobileAuthMenuOpen || isUserMenuOpen) {
+    <div 
+      class="fixed inset-0 bg-black bg-opacity-50 z-40 cursor-pointer"
+      (click)="closeAllMenus()">
+    </div>
+  }
+
+  <!-- Menu mobile quand l'utilisateur n'est pas connecté -->
+  @if (!authService.isAuthenticated() && isMobileAuthMenuOpen) {
+    <div class="fixed right-0 top-0 w-72 bg-white h-full shadow-lg z-50">
+        <div class="flex justify-end items-center h-16 pr-6 bg-primary-dark">
+          <button (click)="closeAllMenus()">
+              <fa-icon [icon]="faCircleXmark" class="text-white" size="lg"></fa-icon>
+          </button>
+        </div>
+        <div class="p-4">
+          <nav class="mt-6">
+            <ul>
+                <app-navlink [path]="PATH.LOGIN" [icon]="faArrowRightToBracket" [label]="'Se connecter'" (onLinkClick)='onLinkClick($event)'></app-navlink>
+                <app-navlink [path]="PATH.REGISTER" [icon]="faUser" [label]="'S\'enregistrer'" (onLinkClick)='onLinkClick($event)'></app-navlink>
+            </ul>
+          </nav>
+        </div>
+      </div>
+  }
+
+  <!-- Menu utilisateur -->
+  @if (authService.isAuthenticated() && isUserMenuOpen) {
+    <div class="fixed right-0 top-0 w-72 bg-white h-full shadow-lg z-50">
+        <div class="flex justify-end items-center h-16 pr-6 bg-primary-dark">
+          <button (click)="closeAllMenus()">
+              <fa-icon [icon]="faCircleXmark" class="text-white" size="lg"></fa-icon> 
+          </button>
+        </div>
+        <div class="p-4">
+            <div class="mb-4 px-4 pt-4">
+                <h3 class="font-medium break-words">{{ authService.getUser().name }}</h3>
+                <p class="text-sm text-gray-600 break-words">{{ authService.getUser().email }}</p>
+            </div>
+            <nav class="mt-12">
+                <ul>
+                    <app-navlink [path]="PATH.ACCOUNT_INFORMATION" [icon]="faUser" [label]="'Mes informations'" (onLinkClick)='onLinkClick($event)'></app-navlink>
+                    <app-navlink [path]="PATH.ACCOUNT_SECURITY" [icon]="faShieldHalved" [label]="'Sécurité'" (onLinkClick)='onLinkClick($event)'></app-navlink>
+                    <app-navlink [icon]="faArrowRightFromBracket" [label]="'Déconnexion'" [isLogOut]="true" (onLinkClick)='onLinkClick($event)'></app-navlink>
+                </ul>
+            </nav>
+        </div>
+      </div>
+  }
+
+  <!-- Menu mobile navigation -->
+  @if (authService.isAuthenticated() && isMobileMenuOpen) {
+    <div class="fixed left-0 top-0 w-72 bg-white h-full shadow-lg z-50">
+      <div class="flex justify-between items-center h-16 pl-6 bg-primary-dark">
+        <button (click)="closeAllMenus()">
+            <fa-icon [icon]="faCircleXmark" class="text-white" size="lg"></fa-icon>
+        </button>
+      </div>
+      <div class="p-4">
+        <nav class="mt-6">
+          <ul>
+            <app-navlink [path]="PATH.ACCOUNT_DASHBOARD" [icon]="faChartLine" [label]="'Tableau de bord'" (onLinkClick)='onLinkClick($event)'></app-navlink>
+            <app-navlink [path]="PATH.ACCOUNT_STATEMENTS" [icon]="faMessage" [label]="'Affirmations'" (onLinkClick)='onLinkClick($event)'></app-navlink>
+            <app-navlink [path]="PATH.ACCOUNT_STATEMENTS_ARCHIVED" [icon]="faFolder" [label]="'Affirmations archivées'" (onLinkClick)='onLinkClick($event)'></app-navlink>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  }

@@ -16,6 +16,7 @@ import { AuthService } from '../../shared/services/auth.service';
 import { IconCardComponent } from './components/icon-card/icon-card.component';
 import { Router, RouterLink } from '@angular/router';
 import { Question } from './models/question.type';
+import { ROUTES_PATH } from '../../app.routes';
 
 @Component({
   selector: 'app-homepage',
@@ -42,7 +43,7 @@ export class HomepageComponent {
       content:
         "Oui, jtelavaisdit est entièrement gratuit. Pour pouvoir utiliser l'ensemble des fonctionnalités, vous devez d'abord vous enregistrer.",
       isOpen: true,
-      link: '/register',
+      link: ROUTES_PATH.REGISTER,
       linkDescription: "S'enregistrer gratuitement",
     },
     {

@@ -1,0 +1,6 @@
+<ul>
+    <app-navlink [path]="PATH.HOME" [icon]="faHouse" [label]="'Accueil'" (onLinkClick)='onClick($event)'></app-navlink>
+    <app-navlink [path]="PATH.ACCOUNT_DASHBOARD" [icon]="faChartLine" [label]="'Tableau de bord'" (onLinkClick)='onClick($event)'></app-navlink>
+    <app-navlink [path]="PATH.ACCOUNT_STATEMENTS" [icon]="faMessage" [label]="'Affirmations'" (onLinkClick)='onClick($event)'></app-navlink>
+    <app-navlink [path]="PATH.ACCOUNT_STATEMENTS_ARCHIVED" [icon]="faFolder" [label]="'Affirmations archivées'" (onLinkClick)='onClick($event)'></app-navlink>
+</ul>

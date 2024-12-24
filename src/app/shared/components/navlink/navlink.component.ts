@@ -1,11 +1,11 @@
 import { NgClass } from '@angular/common';
 import { Component, input, output } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-navlink',
-  imports: [FontAwesomeModule, RouterLink, NgClass],
+  imports: [FontAwesomeModule, RouterLink, NgClass, RouterLinkActive],
   templateUrl: './navlink.component.html',
   styleUrl: './navlink.component.css'
 })
@@ -20,8 +20,8 @@ export class NavlinkComponent {
   onClick() {
     if (this.isLogOut() === true) {
       this.onLinkClick.emit('logout');
-    } else {
-      this.onLinkClick.emit('regular');
+    } else if (this.path() !== undefined) {
+      this.onLinkClick.emit(this.path()!);
     }
   }
 }

@@ -1,2 +1,5 @@
 <app-navbar/>
-<router-outlet />
+<app-sidenav/>
+<main [ngClass]="{'lg:ml-72' : authService.isAuthenticated()}">
+    <router-outlet />
+</main>

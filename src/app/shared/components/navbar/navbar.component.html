@@ -1,4 +1,4 @@
-<nav class="h-16 px-6 lg:px-24 flex items-center justify-between bg-primary">
+<nav class="h-16 px-6 lg:px-24 flex items-center justify-between bg-primary" [ngClass]="{'lg:fixed lg:top-0 lg:left-0 lg:right-0 lg:z-50' : authService.isAuthenticated()}">
     <!-- Menu burger-->
     @if (authService.isAuthenticated()) {
         <div class="flex items-center gap-4 lg:hidden">
@@ -16,7 +16,7 @@
         <div class="hidden md:flex items-center gap-4">
           <a 
             [routerLink]="PATH.LOGIN"
-            class="px-4 py-2 rounded-lg transition cursor-pointer text-white hover:text-white/80">
+            class="px-4 py-2 rounded-lg transition cursor-pointer text-white hover:text-white/80" (click)="fakeLogin()">
             Se connecter
           </a>
           <a 
@@ -102,11 +102,7 @@
       </div>
       <div class="p-4">
         <nav class="mt-6">
-          <ul>
-            <app-navlink [path]="PATH.ACCOUNT_DASHBOARD" [icon]="faChartLine" [label]="'Tableau de bord'" (onLinkClick)='onLinkClick($event)'></app-navlink>
-            <app-navlink [path]="PATH.ACCOUNT_STATEMENTS" [icon]="faMessage" [label]="'Affirmations'" (onLinkClick)='onLinkClick($event)'></app-navlink>
-            <app-navlink [path]="PATH.ACCOUNT_STATEMENTS_ARCHIVED" [icon]="faFolder" [label]="'Affirmations archivées'" (onLinkClick)='onLinkClick($event)'></app-navlink>
-          </ul>
+          <app-navlinks (onLinkClick)="onLinkClick($event)"/>
         </nav>
       </div>
     </div>

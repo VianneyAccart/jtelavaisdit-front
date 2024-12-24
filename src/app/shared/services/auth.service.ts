@@ -4,10 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AuthService {
+
+  // TODO: remove public
+  public isLoggedIn = false;
+
   constructor() {}
 
   isAuthenticated() {
-    return false;
+    return this.isLoggedIn;
   }
 
   getUser() {

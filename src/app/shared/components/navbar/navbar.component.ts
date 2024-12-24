@@ -10,18 +10,22 @@ import {
   faMessage, faFolder
 } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NavlinkComponent } from "./components/navlink/navlink.component";
-import { RouterLink } from '@angular/router';
+import { NavlinkComponent } from "../navlink/navlink.component";
+import { Router, RouterLink } from '@angular/router';
 import { ROUTES_PATH } from '../../../app.routes';
+import { NgClass } from '@angular/common';
+import { NavlinksComponent } from "../navlinks/navlinks.component";
 
 @Component({
   selector: 'app-navbar',
-  imports: [FontAwesomeModule, NavlinkComponent, RouterLink],
+  imports: [FontAwesomeModule, NavlinkComponent, RouterLink, NgClass, NavlinksComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
   protected authService = inject(AuthService);
+  #routerService = inject(Router);
+
   protected isScrolled = false;
   protected isUserMenuOpen = false;
   protected isMobileMenuOpen = false;
@@ -67,8 +71,14 @@ export class NavbarComponent {
     if (event === 'logout') {
       this.logout();
     } else {
+      this.#routerService.navigate([event]);
       this.closeAllMenus();
     }
+  }
+
+  fakeLogin() {
+    this.authService.isLoggedIn = true;
+    this.#routerService.navigate([this.PATH.ACCOUNT_DASHBOARD]);
   }
 
   protected loginAndClose() {
@@ -82,7 +92,8 @@ export class NavbarComponent {
   }
 
   protected logout() {
-    //this.authService.logout();
+    this.authService.isLoggedIn = false;
+    this.#routerService.navigate([this.PATH.HOME]);
     this.closeAllMenus();
   }
 }

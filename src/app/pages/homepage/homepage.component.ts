@@ -17,15 +17,16 @@ import { IconCardComponent } from './components/icon-card/icon-card.component';
 import { Router, RouterLink } from '@angular/router';
 import { Question } from './models/question.type';
 import { ROUTES_PATH } from '../../app.routes';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-homepage',
-  imports: [CardComponent, FontAwesomeModule, IconCardComponent, RouterLink],
+  imports: [CardComponent, FontAwesomeModule, IconCardComponent, RouterLink, NgClass],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css',
 })
 export class HomepageComponent {
-  auth = inject(AuthService);
+  protected authService = inject(AuthService);
   #router = inject(Router);
 
   faCalendar = faCalendar;

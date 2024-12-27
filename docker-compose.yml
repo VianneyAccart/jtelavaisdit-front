@@ -11,8 +11,24 @@ services:
       - traefik
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.itys-client-dev.rule=Host(`localhost`) && PathPrefix(`/`)"
-      - "traefik.http.services.itys-client-dev.loadbalancer.server.port=4200" # Because we are using ng serve which uses port 4200 by default
+      - "traefik.http.routers.jtelavaisdit-client-dev.rule=Host(`localhost`) && PathPrefix(`/`)"
+      - "traefik.http.services.jtelavaisdit-client-dev.loadbalancer.server.port=4200" # Because we are using ng serve which uses port 4200 by default
+  
+  jtelavaisdit-front-staging:
+    build:
+      context: .
+      target: prod
+    container_name: jtelavaisdit-front-staging
+    restart: unless-stopped
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.jtelavaisdit-client-staging.rule=Host(`staging.jtelavaisdit.fr`) && PathPrefix(`/`)"
+      - "traefik.http.routers.jtelavaisdit-client-staging.entrypoints=websecure"
+      - "traefik.http.routers.jtelavaisdit-client-staging.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.jtelavaisdit-client-staging.middlewares=auth-basic@docker"
+      - "traefik.http.middlewares.auth-basic.basicauth.users=jtladstagingvps:$$apr1$$eAa/rl.p$$ev75B9QeB4ns2H4fnwB4f/"
 
   jtelavaisdit-front-prod:
     build:
@@ -24,9 +40,9 @@ services:
       - traefik
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.itys-client-prod.rule=Host(`jtelavaisdit.fr`) && PathPrefix(`/`)"
-      - "traefik.http.routers.itys-client-prod.entrypoints=websecure"
-      - "traefik.http.routers.itys-client-prod.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.jtelavaisdit-client-prod.rule=Host(`jtelavaisdit.fr`) && PathPrefix(`/`)"
+      - "traefik.http.routers.jtelavaisdit-client-prod.entrypoints=websecure"
+      - "traefik.http.routers.jtelavaisdit-client-prod.tls.certresolver=letsencrypt"
 
 networks:
   traefik:

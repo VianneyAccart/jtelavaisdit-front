@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AuthService {
-
   // TODO: remove public
   public isLoggedIn = false;
 
@@ -17,8 +16,8 @@ export class AuthService {
   getUser() {
     return {
       id: '1',
-      email: 'vianneyaccart@gmail.com',
-      name: 'Vianney Accart',
+      email: 'john.doe@email.com',
+      name: 'John Doe',
     };
   }
 }

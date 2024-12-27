@@ -27,8 +27,8 @@ services:
       - "traefik.http.routers.jtelavaisdit-client-staging.rule=Host(`staging.jtelavaisdit.fr`) && PathPrefix(`/`)"
       - "traefik.http.routers.jtelavaisdit-client-staging.entrypoints=websecure"
       - "traefik.http.routers.jtelavaisdit-client-staging.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.jtelavaisdit-client-staging.middlewares=auth-basic@docker"
-      - "traefik.http.middlewares.auth-basic-staging.basicauth.users=jtladstagingvps:$$apr1$$eAa/rl.p$$ev75B9QeB4ns2H4fnwB4f/"
+      - "traefik.http.routers.jtelavaisdit-client-staging.middlewares=auth-basic-staging-front@docker"
+      - "traefik.http.middlewares.auth-basic-staging-front.basicauth.users=jtladstagingvps:$$apr1$$eAa/rl.p$$ev75B9QeB4ns2H4fnwB4f/"
 
   jtelavaisdit-front-prod:
     build:

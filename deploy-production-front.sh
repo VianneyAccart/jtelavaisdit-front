@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PROJECT_DIR="/home/viacc/jtelavaisdit/staging/jtelavaisdit-front"
-BRANCH="staging"
+PROJECT_DIR="/home/viacc/jtelavaisdit/production/jtelavaisdit-front"
+BRANCH="main"
 MAKE_CMD="/usr/bin/make"
 
 # Vérifications de base
@@ -33,11 +33,11 @@ fi
 
 # Lancer la commande Make
 echo "Déploiement avec Make pour la branche '$BRANCH'..."
-$MAKE_CMD up-staging
+$MAKE_CMD up-prod
 
 if [ $? -ne 0 ]; then
   echo "Erreur : Échec du déploiement via Make."
   exit 1
 fi
 
-echo "Déploiement staging terminé avec succès !"
+echo "Déploiement production terminé avec succès !"

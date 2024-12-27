@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-PROJECT_DIR="/path/to/your/project"  # Chemin absolu vers votre projet
+PROJECT_DIR="/home/viacc/jtelavaisdit/staging/jtelavaisdit-front"  # Chemin absolu vers votre projet
 BRANCH="staging"                    # Branche à déployer
 MAKE_CMD="/usr/bin/make"            # Chemin vers l'exécutable make
 

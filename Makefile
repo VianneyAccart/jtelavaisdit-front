@@ -13,9 +13,6 @@ up-dev:
 
 # Start the frontend container in staging mode
 up-staging:
-	@echo "Pulling latest changes from the remote repository..."
-	git fetch --all
-	git checkout --force "origin/staging"
 	@echo "Stopping and cleaning up any existing containers..."
 	$(DOCKER_COMPOSE) down --remove-orphans
 	@echo "Building/rebuilding Docker images and starting Docker Compose services..."

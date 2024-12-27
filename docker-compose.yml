@@ -1,0 +1,32 @@
+services:
+  itys-front-dev:
+    build:
+      context: .
+      target: dev
+    container_name: jtelavaisdit-front-dev
+    volumes:
+      - .:/app
+      - /app/node_modules # Prevent node_modules conflicts
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.itys-client-dev.rule=Host(`localhost`) && PathPrefix(`/`)"
+      - "traefik.http.services.itys-client-dev.loadbalancer.server.port=4200" # Because we are using ng serve which uses port 4200 by default
+
+  itys-front-prod:
+    build:
+      context: .
+      target: prod
+    container_name: jtelavaisdit-front-prod
+    restart: unless-stopped
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.itys-client-prod.rule=(Host(`jtelavaisdit.fr`) || Host(`localhost`)) && PathPrefix(`/`)"
+
+networks:
+  traefik:
+    name: traefik_webgateway
+    external: true

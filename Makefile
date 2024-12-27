@@ -6,22 +6,25 @@ DOCKER_COMPOSE = docker compose
 
 # Start the frontend container in development mode
 up-dev:
-	@echo "Stopping and cleaning up any existing containers..."
-	$(DOCKER_COMPOSE) down --remove-orphans
+	@echo "Stopping and removing dev container"
+	$(DOCKER_COMPOSE) stop jtelavaisdit-front-dev
+	$(DOCKER_COMPOSE) rm -f jtelavaisdit-front-dev
 	@echo "Building/rebuilding Docker images and starting Docker Compose services..."
 	$(DOCKER_COMPOSE) up --build jtelavaisdit-front-dev
 
 # Start the frontend container in staging mode
 up-staging:
-	@echo "Stopping and cleaning up any existing containers..."
-	$(DOCKER_COMPOSE) down --remove-orphans
+	@echo "Stopping and removing staging container"
+	$(DOCKER_COMPOSE) stop jtelavaisdit-front-staging
+	$(DOCKER_COMPOSE) rm -f jtelavaisdit-front-staging
 	@echo "Building/rebuilding Docker images and starting Docker Compose services..."
 	$(DOCKER_COMPOSE) up --build -d jtelavaisdit-front-staging
 
 # Start the frontend container in production mode
 up-prod:
-	@echo "Stopping and cleaning up any existing containers..."
-	$(DOCKER_COMPOSE) down --remove-orphans
+	@echo "Stopping and removing prod container"
+	$(DOCKER_COMPOSE) stop jtelavaisdit-front-prod
+	$(DOCKER_COMPOSE) rm -f jtelavaisdit-front-prod
 	@echo "Building/rebuilding Docker images and starting Docker Compose services..."
 	$(DOCKER_COMPOSE) up --build -d jtelavaisdit-front-prod
 

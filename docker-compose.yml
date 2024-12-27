@@ -25,6 +25,8 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.itys-client-prod.rule=(Host(`jtelavaisdit.fr`) || Host(`localhost`)) && PathPrefix(`/`)"
+      - "traefik.http.routers.itys-client-prod.entrypoints=websecure"
+      - "traefik.http.routers.itys-client-prod.tls.certresolver=letsencrypt"
 
 networks:
   traefik:

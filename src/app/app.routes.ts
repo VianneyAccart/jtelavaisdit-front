@@ -7,16 +7,22 @@ import { SecurityComponent } from './pages/security/security.component';
 import { AccountComponent } from './pages/account/account.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { LegalsComponent } from './pages/legals/legals.component';
+import { PrivacyComponent } from './pages/privacy/privacy.component';
 
 export enum ROUTES_PATH {
   HOME = '/',
-  LOGIN = 'auth/login',
-  REGISTER = 'auth/register',
-  ACCOUNT_INFORMATION = 'account/information',
-  ACCOUNT_SECURITY = 'account/security',
-  ACCOUNT_DASHBOARD = 'account/dashboard',
-  ACCOUNT_STATEMENTS = 'account/statements',
-  ACCOUNT_STATEMENTS_ARCHIVED = 'account/statements/archived',
+  LOGIN = 'auth/connexion',
+  REGISTER = 'auth/enregistrement',
+  ACCOUNT_INFORMATION = 'compte/informations',
+  ACCOUNT_SECURITY = 'compte/securite',
+  ACCOUNT_DASHBOARD = 'compte/tableau-de-bord',
+  ACCOUNT_STATEMENTS = 'compte/affirmations',
+  ACCOUNT_STATEMENTS_ARCHIVED = 'compte/affirmations/archives',
+  CONTACT = 'contact',
+  LEGALS = 'mentions-legales',
+  PRIVACY = 'politique-de-confidentialite',
 }
 
 export const routes: Routes = [
@@ -51,6 +57,18 @@ export const routes: Routes = [
   {
     path: ROUTES_PATH.LOGIN,
     component: LoginComponent,
+  },
+  {
+    path: ROUTES_PATH.CONTACT,
+    component: ContactComponent,
+  },
+  {
+    path: ROUTES_PATH.LEGALS,
+    component: LegalsComponent,
+  },
+  {
+    path: ROUTES_PATH.PRIVACY,
+    component: PrivacyComponent,
   },
   {
     path: '**',

@@ -109,5 +109,7 @@ export class HomepageComponent {
     this.#routerService.navigate([this.PATH.ACCOUNT_STATEMENTS]);
   }
 
-  navigateToContact() {}
+  navigateToContact() {
+    this.#routerService.navigate([this.PATH.CONTACT]);
+  }
 }

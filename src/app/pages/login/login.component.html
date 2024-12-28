@@ -1,7 +1,16 @@
-<div class="p-8">
-    <button (click)="fakeLogin()" class="bg-transparent text-primary border border-primary rounded px-8 py-4 text-center font-medium 
-        transition-all duration-200 ease-in-out 
-        hover:bg-gradient-to-br hover:from-start-gradient  hover:to-end-gradient hover:text-white">
-        Se connecter
+<div class="max-w-6xl mx-auto py-6">
+  <div class="flex flex-col items-center justify-center p-8">
+    <i class="bi bi-clock text-neutral/20 text-5xl"></i>
+    <p class="md:w-1/2 text-neutral/50 text-center my-6">
+      L'application est en cours de construction. Vous pouvez vous connecter
+      pour de faux en cliquant sur le bouton ci-dessous afin d'accéder à
+      l'interface des utilisateurs connectés.
+    </p>
+    <button
+      (click)="fakeLogin()"
+      class="bg-transparent text-primary border border-primary rounded px-8 py-4 text-center font-medium transition-all duration-200 ease-in-out hover:bg-gradient-to-br hover:from-start-gradient hover:to-end-gradient hover:text-white"
+    >
+      Se connecter
     </button>
+  </div>
 </div>

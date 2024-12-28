@@ -1,16 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { NavlinkComponent } from "../navlink/navlink.component";
+import { NavlinkComponent } from '../navlink/navlink.component';
 import { Router, RouterLink } from '@angular/router';
 import { ROUTES_PATH } from '../../../app.routes';
 import { NgClass } from '@angular/common';
-import { NavlinksComponent } from "../navlinks/navlinks.component";
+import { NavlinksComponent } from '../navlinks/navlinks.component';
 
 @Component({
   selector: 'app-navbar',
   imports: [NavlinkComponent, RouterLink, NgClass, NavlinksComponent],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
   protected authService = inject(AuthService);
@@ -19,7 +19,7 @@ export class NavbarComponent {
   protected isScrolled = false;
   protected isUserMenuOpen = false;
   protected isMobileMenuOpen = false;
-  protected isMobileAuthMenuOpen = false; 
+  protected isMobileAuthMenuOpen = false;
   protected PATH = ROUTES_PATH;
 
   protected toggleUserMenu() {

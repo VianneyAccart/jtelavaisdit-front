@@ -1,5 +1,13 @@
-<app-navbar/>
-<app-sidenav/>
-<main [ngClass]="{'lg:ml-72' : authService.isAuthenticated()}">
+<div class="flex flex-col min-h-screen">
+  <app-navbar />
+  <app-sidenav />
+  <main
+    [ngClass]="{ 'lg:ml-72': authService.isAuthenticated() }"
+    class="flex-grow"
+  >
     <router-outlet />
-</main>
+  </main>
+  @if (!authService.isAuthenticated()) {
+  <app-footer />
+  }
+</div>

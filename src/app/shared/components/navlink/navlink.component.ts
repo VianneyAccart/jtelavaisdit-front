@@ -6,15 +6,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   selector: 'app-navlink',
   imports: [RouterLink, NgClass, RouterLinkActive],
   templateUrl: './navlink.component.html',
-  styleUrl: './navlink.component.css'
+  styleUrl: './navlink.component.css',
 })
 export class NavlinkComponent {
   readonly path = input<string>();
   readonly icon = input.required<any>();
   readonly label = input.required<string>();
   readonly isLogOut = input(false);
+  readonly isLastItem = input(false);
 
-  onLinkClick = output<string>()
+  onLinkClick = output<string>();
 
   onClick() {
     if (this.isLogOut() === true) {
@@ -27,7 +28,7 @@ export class NavlinkComponent {
   getIconClasses() {
     return {
       [this.icon()]: true,
-      'text-red-600': this.isLogOut()
+      'text-red-600': this.isLogOut(),
     };
   }
 }

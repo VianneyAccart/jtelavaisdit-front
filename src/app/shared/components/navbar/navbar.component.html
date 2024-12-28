@@ -1,105 +1,179 @@
-<nav class="h-16 px-6 lg:px-24 flex items-center justify-between bg-primary" [ngClass]="{'lg:fixed lg:top-0 lg:left-0 lg:right-0 lg:z-50 border-b border-white/20' : authService.isAuthenticated()}">
-    <!-- Menu burger-->
-    @if (authService.isAuthenticated()) {
-        <div class="flex items-center gap-4 lg:hidden">
-            <button class="lg:hidden text-primary" (click)="toggleLoggedMobileMenu()"aria-label="Menu">
-            <i class="bi bi-list text-white text-2xl"></i> 
-            </button>
-        </div>
-    }
+<nav
+  class="h-16 px-6 lg:px-24 flex items-center justify-between bg-primary"
+  [ngClass]="{
+    'lg:fixed lg:top-0 lg:left-0 lg:right-0 lg:z-50 border-b border-white/20':
+      authService.isAuthenticated()
+  }"
+>
+  <!-- Menu burger-->
+  @if (authService.isAuthenticated()) {
+  <div class="flex items-center gap-4 lg:hidden">
+    <button
+      class="lg:hidden text-primary"
+      (click)="toggleLoggedMobileMenu()"
+      aria-label="Menu"
+    >
+      <i class="bi bi-list text-white text-2xl"></i>
+    </button>
+  </div>
+  }
 
-    <a [routerLink]="PATH.HOME" class="text-xl font-black text-white cursor-pointer">jtelavaisdit.</a>
+  <a
+    [routerLink]="PATH.HOME"
+    class="text-xl font-black text-white cursor-pointer"
+    >jtelavaisdit.</a
+  >
 
-    <div class="flex items-center gap-4">
-      @if (!authService.isAuthenticated()) {
-        <!-- Version desktop -->
-        <div class="hidden md:flex items-center gap-4">
-          <a 
-            [routerLink]="PATH.LOGIN"
-            class="px-4 py-2 rounded cursor-pointer text-white hover:text-white/80 transition-all duration-200 ease-in-out">
-            Se connecter
-          </a>
-          <a 
-            [routerLink]="PATH.REGISTER"
-            class="px-4 py-2 rounded cursor-pointer bg-transparent text-white border border-white hover:text-white/80 hover:border-white/50 transition-all duration-200 ease-in-out">
-            S'enregistrer
-          </a>
-        </div>
-        <!-- Version mobile -->
-        <button 
-          class="md:hidden"
-          (click)="toggleNotLoggedMobileMenu()">
-          <i class="bi bi-list text-white text-2xl"></i> 
-        </button>
-      } @else {
-        <i class="bi bi-person-circle text-2xl text-white hover:text-white/80 transition-all duration-200 ease-in-out cursor-pointer" (click)="toggleUserMenu()"></i> 
-      }
+  <div class="flex items-center gap-4">
+    @if (!authService.isAuthenticated()) {
+    <!-- Version desktop -->
+    <div class="hidden md:flex items-center gap-4">
+      <a
+        [routerLink]="PATH.LOGIN"
+        class="px-4 py-2 rounded cursor-pointer text-white hover:text-white/80 transition-all duration-200 ease-in-out"
+      >
+        Se connecter
+      </a>
+      <a
+        [routerLink]="PATH.REGISTER"
+        class="px-4 py-2 rounded cursor-pointer bg-transparent text-white border border-white hover:text-white/80 hover:border-white/50 transition-all duration-200 ease-in-out"
+      >
+        S'enregistrer
+      </a>
     </div>
+    <!-- Version mobile -->
+    <button class="md:hidden" (click)="toggleNotLoggedMobileMenu()">
+      <i class="bi bi-list text-white text-2xl"></i>
+    </button>
+    } @else {
+    <i
+      class="bi bi-person-circle text-2xl text-white hover:text-white/80 transition-all duration-200 ease-in-out cursor-pointer"
+      (click)="toggleUserMenu()"
+    ></i>
+    }
+  </div>
 </nav>
 
-  <!-- Overlay pour mobile uniquement -->
-  @if (isMobileMenuOpen || isMobileAuthMenuOpen || isUserMenuOpen) {
-    <div 
-      class="fixed inset-0 bg-black bg-opacity-50 z-40 cursor-pointer"
-      (click)="closeAllMenus()">
+<!-- Overlay pour mobile uniquement -->
+@if (isMobileMenuOpen || isMobileAuthMenuOpen || isUserMenuOpen) {
+<div
+  class="fixed inset-0 bg-black bg-opacity-50 z-40 cursor-pointer"
+  (click)="closeAllMenus()"
+></div>
+}
+
+<!-- Menu mobile quand l'utilisateur n'est pas connecté -->
+@if (!authService.isAuthenticated() && isMobileAuthMenuOpen) {
+<div class="fixed right-0 top-0 w-72 bg-white h-full shadow-lg z-50">
+  <div class="flex justify-end items-center h-16 pr-6 bg-primary-dark">
+    <button (click)="closeAllMenus()">
+      <i class="bi bi-x text-white text-2xl"></i>
+    </button>
+  </div>
+  <div class="p-4">
+    <nav class="mt-6">
+      <ul>
+        <app-navlink
+          [path]="PATH.LOGIN"
+          [icon]="'bi-box-arrow-in-right'"
+          [label]="'Se connecter'"
+          (onLinkClick)="onLinkClick($event)"
+        ></app-navlink>
+        <app-navlink
+          [path]="PATH.REGISTER"
+          [icon]="'bi-person-add'"
+          [label]="'S\'enregistrer'"
+          (onLinkClick)="onLinkClick($event)"
+        ></app-navlink>
+      </ul>
+    </nav>
+  </div>
+</div>
+}
+
+<!-- Menu utilisateur -->
+@if (authService.isAuthenticated() && isUserMenuOpen) {
+<div class="fixed right-0 top-0 w-72 bg-white h-full shadow-lg z-50">
+  <div class="flex justify-end items-center h-16 pr-6 bg-primary-dark">
+    <button (click)="closeAllMenus()">
+      <i class="bi bi-x text-white text-2xl"></i>
+    </button>
+  </div>
+  <div class="p-4">
+    <div class="mb-4 px-4 pt-4">
+      <h3 class="font-medium break-words">{{ authService.getUser().name }}</h3>
+      <p class="text-sm text-gray-600 break-words">
+        {{ authService.getUser().email }}
+      </p>
     </div>
-  }
-
-  <!-- Menu mobile quand l'utilisateur n'est pas connecté -->
-  @if (!authService.isAuthenticated() && isMobileAuthMenuOpen) {
-    <div class="fixed right-0 top-0 w-72 bg-white h-full shadow-lg z-50">
-        <div class="flex justify-end items-center h-16 pr-6 bg-primary-dark">
-          <button (click)="closeAllMenus()">
-              <i class="bi bi-x text-white text-2xl"></i> 
-          </button>
-        </div>
-        <div class="p-4">
-          <nav class="mt-6">
-            <ul>
-                <app-navlink [path]="PATH.LOGIN" [icon]="'bi-box-arrow-in-right'" [label]="'Se connecter'" (onLinkClick)='onLinkClick($event)'></app-navlink>
-                <app-navlink [path]="PATH.REGISTER" [icon]="'bi-person-add'" [label]="'S\'enregistrer'" (onLinkClick)='onLinkClick($event)'></app-navlink>
-            </ul>
-          </nav>
-        </div>
-      </div>
-  }
-
-  <!-- Menu utilisateur -->
-  @if (authService.isAuthenticated() && isUserMenuOpen) {
-    <div class="fixed right-0 top-0 w-72 bg-white h-full shadow-lg z-50">
-        <div class="flex justify-end items-center h-16 pr-6 bg-primary-dark">
-          <button (click)="closeAllMenus()">
-            <i class="bi bi-x text-white text-2xl"></i> 
-          </button>
-        </div>
-        <div class="p-4">
-            <div class="mb-4 px-4 pt-4">
-                <h3 class="font-medium break-words">{{ authService.getUser().name }}</h3>
-                <p class="text-sm text-gray-600 break-words">{{ authService.getUser().email }}</p>
-            </div>
-            <nav class="mt-12">
-                <ul>
-                    <app-navlink [path]="PATH.ACCOUNT_INFORMATION" [icon]="'bi-person-gear'" [label]="'Mes informations'" (onLinkClick)='onLinkClick($event)'></app-navlink>
-                    <app-navlink [path]="PATH.ACCOUNT_SECURITY" [icon]="'bi-shield-check'" [label]="'Sécurité'" (onLinkClick)='onLinkClick($event)'></app-navlink>
-                    <app-navlink [icon]="'bi-box-arrow-right'" [label]="'Déconnexion'" [isLogOut]="true" (onLinkClick)='onLinkClick($event)'></app-navlink>
-                </ul>
-            </nav>
-        </div>
-      </div>
-  }
-
-  <!-- Menu mobile navigation -->
-  @if (authService.isAuthenticated() && isMobileMenuOpen) {
-    <div class="fixed left-0 top-0 w-72 bg-white h-full shadow-lg z-50">
-      <div class="flex justify-between items-center h-16 pl-6 bg-primary-dark">
-        <button (click)="closeAllMenus()">
-          <i class="bi bi-x text-white text-2xl"></i> 
-        </button>
-      </div>
-      <div class="p-4">
-        <nav class="mt-6">
-          <app-navlinks (onLinkClick)="onLinkClick($event)"/>
-        </nav>
-      </div>
+    <div class="px-4 mb-4 mt-6">
+      <hr class="my-2 border-lightgray sm:mx-auto" />
     </div>
-  }
+    <nav class="mt-4">
+      <ul>
+        <app-navlink
+          [path]="PATH.ACCOUNT_INFORMATION"
+          [icon]="'bi-person-gear'"
+          [label]="'Informations du compte'"
+          (onLinkClick)="onLinkClick($event)"
+        ></app-navlink>
+        <app-navlink
+          [path]="PATH.ACCOUNT_SECURITY"
+          [icon]="'bi-shield-check'"
+          [label]="'Sécurité du compte'"
+          [isLastItem]="true"
+          (onLinkClick)="onLinkClick($event)"
+        ></app-navlink>
+        <div class="px-4 my-4">
+          <hr class="my-2 border-lightgray sm:mx-auto" />
+        </div>
+        <app-navlink
+          [path]="PATH.CONTACT"
+          [icon]="'bi-envelope'"
+          [label]="'Contact'"
+          (onLinkClick)="onLinkClick($event)"
+        ></app-navlink>
+        <app-navlink
+          [path]="PATH.LEGALS"
+          [icon]="'bi-info-circle'"
+          [label]="'Mentions légales'"
+          (onLinkClick)="onLinkClick($event)"
+        ></app-navlink>
+        <app-navlink
+          [path]="PATH.PRIVACY"
+          [icon]="'bi-file-earmark-text'"
+          [label]="'Confidentialité'"
+          [isLastItem]="true"
+          (onLinkClick)="onLinkClick($event)"
+        ></app-navlink>
+        <div class="px-4 my-4">
+          <hr class="my-2 border-lightgray sm:mx-auto" />
+        </div>
+        <app-navlink
+          [icon]="'bi-box-arrow-right'"
+          [label]="'Déconnexion'"
+          [isLogOut]="true"
+          [isLastItem]="true"
+          (onLinkClick)="onLinkClick($event)"
+        ></app-navlink>
+      </ul>
+    </nav>
+  </div>
+</div>
+}
+
+<!-- Menu mobile navigation -->
+@if (authService.isAuthenticated() && isMobileMenuOpen) {
+<div class="fixed left-0 top-0 w-72 bg-white h-full shadow-lg z-50">
+  <div class="flex justify-between items-center h-16 pl-6 bg-primary-dark">
+    <button (click)="closeAllMenus()">
+      <i class="bi bi-x text-white text-2xl"></i>
+    </button>
+  </div>
+  <div class="p-4">
+    <nav class="mt-6">
+      <app-navlinks (onLinkClick)="onLinkClick($event)" />
+    </nav>
+  </div>
+</div>
+}

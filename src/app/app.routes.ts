@@ -22,7 +22,7 @@ export enum ROUTES_PATH {
   ACCOUNT_STATEMENTS_ARCHIVED = 'compte/affirmations/archives',
   CONTACT = 'contact',
   LEGALS = 'mentions-legales',
-  PRIVACY = 'politique-de-confidentialite',
+  PRIVACY = 'confidentialite',
 }
 
 export const routes: Routes = [

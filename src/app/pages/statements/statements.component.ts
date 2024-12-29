@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-statements',
   imports: [],
   templateUrl: './statements.component.html',
-  styleUrl: './statements.component.css'
+  styleUrl: './statements.component.css',
 })
-export class StatementsComponent {
-
-}
+export class StatementsComponent {}

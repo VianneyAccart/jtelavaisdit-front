@@ -66,7 +66,7 @@ export class NavbarComponent {
   }
 
   protected logout() {
-    this.authService.isLoggedIn = false;
+    this.authService.authenticated = false;
     this.#routerService.navigate([this.PATH.HOME]);
     this.closeAllMenus();
   }

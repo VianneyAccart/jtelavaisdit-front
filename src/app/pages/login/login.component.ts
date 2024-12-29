@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   imports: [],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
   #authService = inject(AuthService);
@@ -16,7 +16,7 @@ export class LoginComponent {
   protected PATH = ROUTES_PATH;
 
   fakeLogin() {
-    this.#authService.isLoggedIn = true;
+    this.#authService.authenticated = true;
     this.#routerService.navigate([this.PATH.ACCOUNT_DASHBOARD]);
   }
 }

@@ -10,6 +10,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { LegalsComponent } from './pages/legals/legals.component';
 import { PrivacyComponent } from './pages/privacy/privacy.component';
+import { AuthenticatedGuard } from './shared/guards/authenticated.guard';
+import { NotAuthenticatedGuard } from './shared/guards/not-authenticated.guard';
 
 export enum ROUTES_PATH {
   HOME = '/',
@@ -33,30 +35,37 @@ export const routes: Routes = [
   {
     path: ROUTES_PATH.ACCOUNT_DASHBOARD,
     component: DashbordComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: ROUTES_PATH.ACCOUNT_STATEMENTS,
     component: StatementsComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: ROUTES_PATH.ACCOUNT_STATEMENTS_ARCHIVED,
     component: ArchivedStatementsComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: ROUTES_PATH.ACCOUNT_SECURITY,
     component: SecurityComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: ROUTES_PATH.ACCOUNT_INFORMATION,
     component: AccountComponent,
+    canActivate: [AuthenticatedGuard],
   },
   {
     path: ROUTES_PATH.REGISTER,
     component: RegisterComponent,
+    canActivate: [NotAuthenticatedGuard],
   },
   {
     path: ROUTES_PATH.LOGIN,
     component: LoginComponent,
+    canActivate: [NotAuthenticatedGuard],
   },
   {
     path: ROUTES_PATH.CONTACT,

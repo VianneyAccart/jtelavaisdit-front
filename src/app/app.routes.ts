@@ -27,57 +27,70 @@ export enum ROUTES_PATH {
   PRIVACY = 'confidentialite',
 }
 
+const TITLE_PREFIX = 'Jtelavaisdit - ';
+
 export const routes: Routes = [
   {
     path: '',
     component: HomepageComponent,
+    title: TITLE_PREFIX + 'Créez, révélez et célébrez !',
   },
   {
     path: ROUTES_PATH.ACCOUNT_DASHBOARD,
     component: DashbordComponent,
     canActivate: [AuthenticatedGuard],
+    title: TITLE_PREFIX + 'Tableau de bord',
   },
   {
     path: ROUTES_PATH.ACCOUNT_STATEMENTS,
     component: StatementsComponent,
     canActivate: [AuthenticatedGuard],
+    title: TITLE_PREFIX + 'Affirmations',
   },
   {
     path: ROUTES_PATH.ACCOUNT_STATEMENTS_ARCHIVED,
     component: ArchivedStatementsComponent,
     canActivate: [AuthenticatedGuard],
+    title: TITLE_PREFIX + 'Affirmations archivées',
   },
   {
     path: ROUTES_PATH.ACCOUNT_SECURITY,
     component: SecurityComponent,
     canActivate: [AuthenticatedGuard],
+    title: TITLE_PREFIX + 'Sécurité du compte',
   },
   {
     path: ROUTES_PATH.ACCOUNT_INFORMATION,
     component: AccountComponent,
     canActivate: [AuthenticatedGuard],
+    title: TITLE_PREFIX + 'Informations du compte',
   },
   {
     path: ROUTES_PATH.REGISTER,
     component: RegisterComponent,
     canActivate: [NotAuthenticatedGuard],
+    title: TITLE_PREFIX + "S'enregistrer",
   },
   {
     path: ROUTES_PATH.LOGIN,
     component: LoginComponent,
     canActivate: [NotAuthenticatedGuard],
+    title: TITLE_PREFIX + 'Se connecter',
   },
   {
     path: ROUTES_PATH.CONTACT,
     component: ContactComponent,
+    title: TITLE_PREFIX + 'Contact',
   },
   {
     path: ROUTES_PATH.LEGALS,
     component: LegalsComponent,
+    title: TITLE_PREFIX + 'Mentions légales',
   },
   {
     path: ROUTES_PATH.PRIVACY,
     component: PrivacyComponent,
+    title: TITLE_PREFIX + 'Politique de confidentialité',
   },
   {
     path: '**',

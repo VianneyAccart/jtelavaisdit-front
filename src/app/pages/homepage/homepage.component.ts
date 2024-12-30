@@ -24,10 +24,10 @@ export class HomepageComponent {
       id: 1,
       title: 'Est-ce que jtelavaisdit est gratuit ?',
       content:
-        "Oui, jtelavaisdit est entièrement gratuit. Pour pouvoir utiliser l'ensemble des fonctionnalités, vous devez d'abord vous enregistrer.",
+        "Oui, jtelavaisdit est entièrement gratuit. Pour pouvoir utiliser l'ensemble des fonctionnalités, vous devez d'abord créer un compte.",
       isOpen: true,
       link: ROUTES_PATH.REGISTER,
-      linkDescription: "S'enregistrer gratuitement",
+      linkDescription: 'Créer un compte gratuitement',
     },
     {
       id: 2,

@@ -12,6 +12,7 @@ import { LegalsComponent } from './pages/legals/legals.component';
 import { PrivacyComponent } from './pages/privacy/privacy.component';
 import { AuthenticatedGuard } from './shared/guards/authenticated.guard';
 import { NotAuthenticatedGuard } from './shared/guards/not-authenticated.guard';
+import { GcuComponent } from './pages/gcu/gcu.component';
 
 export enum ROUTES_PATH {
   HOME = '/',
@@ -25,6 +26,7 @@ export enum ROUTES_PATH {
   CONTACT = 'contact',
   LEGALS = 'mentions-legales',
   PRIVACY = 'confidentialite',
+  GCU = 'cgu',
 }
 
 const TITLE_PREFIX = 'Jtelavaisdit - ';
@@ -69,7 +71,7 @@ export const routes: Routes = [
     path: ROUTES_PATH.REGISTER,
     component: RegisterComponent,
     canActivate: [NotAuthenticatedGuard],
-    title: TITLE_PREFIX + "S'enregistrer",
+    title: TITLE_PREFIX + 'Création de compte',
   },
   {
     path: ROUTES_PATH.LOGIN,
@@ -91,6 +93,11 @@ export const routes: Routes = [
     path: ROUTES_PATH.PRIVACY,
     component: PrivacyComponent,
     title: TITLE_PREFIX + 'Politique de confidentialité',
+  },
+  {
+    path: ROUTES_PATH.GCU,
+    component: GcuComponent,
+    title: TITLE_PREFIX + "Conditions Générales d'Utilisation",
   },
   {
     path: '**',

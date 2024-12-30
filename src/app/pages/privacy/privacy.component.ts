@@ -10,6 +10,5 @@ import { AuthService } from '../../shared/services/auth.service';
 })
 export class PrivacyComponent {
   protected authService = inject(AuthService);
-
   protected email = 'vianneyaccart@gmail.com';
 }

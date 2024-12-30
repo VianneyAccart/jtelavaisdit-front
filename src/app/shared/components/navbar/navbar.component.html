@@ -38,7 +38,7 @@
         [routerLink]="PATH.REGISTER"
         class="px-4 py-2 rounded cursor-pointer bg-transparent text-white border border-white hover:text-white/80 hover:border-white/50 transition-all duration-200 ease-in-out"
       >
-        S'enregistrer
+        Créer un compte
       </a>
     </div>
     <!-- Version mobile -->
@@ -82,7 +82,7 @@
         <app-navlink
           [path]="PATH.REGISTER"
           [icon]="'bi-person-add'"
-          [label]="'S\'enregistrer'"
+          [label]="'Créer un compte'"
           (onLinkClick)="onLinkClick($event)"
         ></app-navlink>
       </ul>
@@ -143,6 +143,13 @@
           [path]="PATH.PRIVACY"
           [icon]="'bi-file-earmark-text'"
           [label]="'Confidentialité'"
+          [isLastItem]="true"
+          (onLinkClick)="onLinkClick($event)"
+        ></app-navlink>
+        <app-navlink
+          [path]="PATH.GCU"
+          [icon]="'bi-file-earmark-text'"
+          [label]="'CGU'"
           [isLastItem]="true"
           (onLinkClick)="onLinkClick($event)"
         ></app-navlink>

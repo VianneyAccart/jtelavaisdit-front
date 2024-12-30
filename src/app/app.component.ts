@@ -5,6 +5,7 @@ import { SidenavComponent } from './shared/components/sidenav/sidenav.component'
 import { NgClass } from '@angular/common';
 import { AuthService } from './shared/services/auth.service';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { NgcCookieConsentService } from 'ngx-cookieconsent';
 
 @Component({
   selector: 'app-root',
@@ -20,4 +21,5 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 })
 export class AppComponent {
   protected authService = inject(AuthService);
+  protected cookieConsentService = inject(NgcCookieConsentService);
 }

@@ -53,14 +53,14 @@ export class HomepageComponent {
     },
     {
       id: 5,
-      title: 'Combien de destinataires je peux ajouter à une affirmation ?',
+      title: 'Combien de destinataires puis-je ajouter à une affirmation ?',
       content:
         'Vous pouvez associer entre 0 et 10 destinataires au maximum à une affirmation.',
       isOpen: false,
     },
     {
       id: 6,
-      title: 'Pourquoi je ne peux pas supprimer une affirmation ?',
+      title: 'Pourquoi ne puis-je pas supprimer une affirmation ?',
       content:
         "Nous avons décidé de ne pas permettre la suppression d'une affirmation. Cela est inhérent au fonctionnement de jtelavaisdit, où le but est de garantir l'authenticité de ce que vous avez écrit et conserver la trace de vos affirmations. Il n'est toutefois pas impossible que la suppression devienne possible dans une future version, selon l'évolution de vos besoins.",
       isOpen: false,
@@ -78,7 +78,7 @@ export class HomepageComponent {
     {
       id: 8,
       title:
-        'A quelle heure est révélée une affirmation quand elle est révélée automatiquement ?',
+        'À quelle heure une affirmation est-elle révélée automatiquement ?',
       content:
         "Vous pouvez définir une date et une heure de révélation pour une affirmation, avec une granularité à la demie-heure : 12h00, 12h30, 13h00, etc... Généralement, votre affirmation sera révélée rapidement à compter de l'heure définie. Toutefois, ce délai peut varier en fonction du nombre de révélations à faire à la même date et heure.",
       isOpen: false,

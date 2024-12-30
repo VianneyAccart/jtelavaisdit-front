@@ -1,12 +1,15 @@
 <div
-  class="max-w-6xl mx-auto py-6"
-  [ngClass]="{ 'lg:mt-12': authService.isAuthenticated() }"
+  class="py-6"
+  [ngClass]="{
+    'max-w-6xl mx-auto': !authService.isAuthenticated(),
+    'lg:mt-12': authService.isAuthenticated()
+  }"
 >
   <div class="p-8 md:p-16">
     <h1 class="text-3xl md:text-4xl font-extrabold mb-2">
       Politique de Confidentialité
     </h1>
-    <p class="font-light text-md">Dernière mise à jour : 28/12/2024</p>
+    <p class="font-light text-md">Dernière mise à jour : 30/12/2024</p>
 
     <h2 class="text-xl md:text-2xl font-bold mt-12 mb-4">Introduction</h2>
     <p>
@@ -40,7 +43,7 @@
     <ul class="mt-4">
       <li class="list-disc ml-6">
         Informations personnelles : prénom, nom, adresse email, mot de passe
-        encrypté
+        chiffré
       </li>
       <li class="list-disc ml-6">Affirmations créées et dates associées</li>
       <li class="list-disc ml-6">Adresse email des destinataires</li>
@@ -54,7 +57,7 @@
     <ul class="mt-4">
       <li class="list-disc ml-6">Adresse IP</li>
       <li class="list-disc ml-6">
-        Données relatives à votre appareil :vtype de navigateur, système
+        Données relatives à votre appareil : type de navigateur, système
         d'exploitation...
       </li>
       <li class="list-disc ml-6">
@@ -129,7 +132,8 @@
       </li>
       <li class="list-disc ml-6">
         Jusqu'à ce que vous supprimiez votre compte ou retiriez votre
-        consentement.
+        consentement, sous réserve des obligations légales de conservation des
+        données.
       </li>
     </ul>
 
@@ -185,8 +189,8 @@
       Vous pouvez demander la suppression définitive de vos données personnelles
       en contactant <a [href]="'mailto:' + email">{{ email }}</a
       >. Nous traiterons votre demande dans les meilleurs délais, sous réserve
-      des exigences légales ou des obligations contractuelles qui pourraient
-      imposer une conservation.
+      des exigences légales ou des obligations contractuelles pouvant imposer
+      une conservation.
     </p>
 
     <!-- Consentement renforcé -->

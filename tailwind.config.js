@@ -15,7 +15,8 @@ module.exports = {
         background: '#F4F5FF',
         'neutral': '#3C3C3C',
         white: "#ffffff",
-        'lightgray': '#E5E5E5',
+        'white-blue': '#f4f5ff',
+        'gray-border': '#dad9da'
       },
     },
   },

@@ -1,11 +1,70 @@
-<div class="p-8" [ngClass]="{ 'lg:mt-16': authService.isAuthenticated() }">
-  <div class="max-w-6xl mx-auto py-6">
-    <div class="flex flex-col items-center justify-center p-8">
-      <i class="bi bi-clock text-neutral/20 text-5xl"></i>
-      <p class="md:w-1/2 text-neutral/50 text-center my-6">
-        L'application est en cours de construction. La page de contact n'est pas
-        encore disponible pour le moment.
+<div class="p-8" [ngClass]="{ 'lg:mt-24': authService.isAuthenticated() }">
+  <div class="flex flex-col items-center justify-center">
+    <form
+      (ngSubmit)="ngContactForm.valid && submit()"
+      [formGroup]="contactForm"
+      #ngContactForm="ngForm"
+      class="bg-white border border-gray-border rounded-md p-8 lg:p-12 w-full max-w-2xl"
+    >
+      <h1 class="text-3xl md:text-4xl font-extrabold">Nous contacter.</h1>
+      <p class="mt-6 mb-12">
+        Vous pouvez nous contacter pour toute question. Notre équipe fera son
+        maximum pour vous répondre dans les meilleurs délais.
       </p>
-    </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm mb-2" for="email">
+          Adresse e-mail*
+        </label>
+        <input
+          [ngClass]="{
+            'border-red-500':
+            ngContactForm.submitted && contactForm.get('email')?.errors?.['required'] || ngContactForm.submitted &&
+            contactForm.get('email')?.errors?.['email']
+          }"
+          class="appearance-none border text-sm rounded w-full py-2 px-3 text-gray-700 focus:outline-primary/80 focus:shadow-outline"
+          id="email"
+          type="email"
+          placeholder="martin.dupont@email.fr"
+          formControlName="email"
+        />
+        @if (ngContactForm.submitted &&
+        contactForm.get('email')?.errors?.['required']) {
+        <small class="text-red-500 text-xs"
+          >L'addresse email est obligatoire</small
+        >
+        } @if (ngContactForm.submitted &&
+        contactForm.get('email')?.errors?.['email']) {
+        <small class="text-red-500 text-xs"
+          >Le format de l'addresse email est incorrect</small
+        >
+        }
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm mb-2" for="message">
+          Votre message*
+        </label>
+        <textarea
+          [ngClass]="{
+          'border-red-500':
+          ngContactForm.submitted && contactForm.get('message')?.errors?.['required']
+        }"
+          rows="10"
+          class="appearance-none border text-sm rounded w-full py-2 px-3 text-gray-700 focus:outline-primary/80 focus:shadow-outline"
+          id="message"
+          type="textarea"
+          placeholder="Bonjour, j'aurais besoin de renseignements à propos de ..."
+          formControlName="message"
+        ></textarea>
+        @if (ngContactForm.submitted &&
+        contactForm.get('message')?.errors?.['required']) {
+        <small class="text-red-500 text-xs">Le message est obligatoire</small>}
+      </div>
+      <button
+        type="submit"
+        class="bg-transparent text-primary text-sm border border-primary rounded px-10 py-3 text-center font-medium transition-all duration-200 ease-in-out hover:bg-gradient-to-br hover:from-start-gradient hover:to-end-gradient hover:text-white"
+      >
+        Envoyer
+      </button>
+    </form>
   </div>
 </div>

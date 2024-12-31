@@ -1,35 +1,39 @@
-<div
-  class="py-6"
-  [ngClass]="{
-    'max-w-6xl mx-auto': !authService.isAuthenticated(),
-    'lg:mt-12': authService.isAuthenticated()
-  }"
->
-  <div class="p-8 md:p-16">
-    <h1 class="text-3xl md:text-4xl font-extrabold mb-2">Mentions légales</h1>
-    <p class="font-light text-md">Dernière mise à jour : 28/12/2024</p>
+<div class="bg-white" style="min-height: calc(100vh - 3rem)">
+  <div
+    class="py-6"
+    [ngClass]="{
+      'max-w-6xl mx-auto': !authService.isAuthenticated(),
+      'lg:mt-12': authService.isAuthenticated()
+    }"
+  >
+    <div class="p-8 md:p-16">
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-2">Mentions légales</h1>
+      <p class="font-light text-md">Dernière mise à jour : 28/12/2024</p>
 
-    <h2 class="text-xl md:text-2xl font-bold mt-12 mb-4">
-      Propriétaire du site
-    </h2>
-    <p>Monsieur Vianney ACCART – 8 Impasse des Lilas, 69780 Toussieu, France</p>
+      <h2 class="text-xl md:text-2xl font-bold mt-12 mb-4">
+        Propriétaire du site
+      </h2>
+      <p>
+        Monsieur Vianney ACCART – 8 Impasse des Lilas, 69780 Toussieu, France
+      </p>
 
-    <h2 class="text-xl md:text-2xl font-bold mt-12 mb-4">
-      Responsable de la publication
-    </h2>
-    <p>
-      Vianney ACCART –
-      <a class="text-primary" [href]="'mailto:' + email">{{ email }}</a>
-    </p>
+      <h2 class="text-xl md:text-2xl font-bold mt-12 mb-4">
+        Responsable de la publication
+      </h2>
+      <p>
+        Vianney ACCART –
+        <a class="text-primary" [href]="'mailto:' + email">{{ email }}</a>
+      </p>
 
-    <h2 class="text-xl md:text-2xl font-bold mt-12 mb-4">Hébergement</h2>
-    <p>
-      Ce site est hébergé par PulseHeberg : SAS PulseHeberg 9, Boulevard de
-      Strasbourg, 83000 Toulon.
-    </p>
-    <ul class="mt-4">
-      <li class="list-disc ml-6">Téléphone : +33 (0) 4 22 14 13 60</li>
-      <li class="list-disc ml-6">Email : {{ emailPulseHeberg }}</li>
-    </ul>
+      <h2 class="text-xl md:text-2xl font-bold mt-12 mb-4">Hébergement</h2>
+      <p>
+        Ce site est hébergé par PulseHeberg : SAS PulseHeberg 9, Boulevard de
+        Strasbourg, 83000 Toulon.
+      </p>
+      <ul class="mt-4">
+        <li class="list-disc ml-6">Téléphone : +33 (0) 4 22 14 13 60</li>
+        <li class="list-disc ml-6">Email : {{ emailPulseHeberg }}</li>
+      </ul>
+    </div>
   </div>
 </div>

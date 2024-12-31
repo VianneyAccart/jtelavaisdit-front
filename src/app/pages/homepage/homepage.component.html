@@ -1,385 +1,390 @@
 <!-- Intro -->
-<div
-  class="bg-gradient-to-b from-primary to-primary/10 relative overflow-hidden px-10"
-  [ngClass]="{ 'lg:mt-16': authService.isAuthenticated() }"
->
-  <div class="relative z-10">
-    <div class="max-w-6xl mx-auto pt-24 lg:pt-32 pb-12">
-      <div class="max-w-3xl mx-auto text-center relative">
-        <h1 class="text-4xl sm:text-6xl md:text-7xl font-black text-white mb-4">
-          Jtelavaisdit
-        </h1>
-        <h2 class="text-xl md:text-2xl font-light text-white mb-4">
-          Les sceptiques vont <span class="font-bold">détester</span>. Vous
-          allez <span class="font-bold">adorer</span>.
-        </h2>
-      </div>
-      <div class="flex flex-row-reverse">
-        <div
-          class="w-12 h-12 bg-gradient-to-b from-primary/30 from-40% to-primary/10 rounded-full -mt-20 ml-8 sm:ml-80 lg:-mt-20 lg:ml-48"
-        ></div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-24">
-        <homepage-card
-          [title]="'Créez.'"
-          [text]="
-            'Une affirmation qui décrit, d’après vous, ce qui va se produire'
-          "
-        />
-        <homepage-card
-          [title]="'Révèlez.'"
-          [text]="
-            'Votre affirmation en temps voulu et aux personnes de votre choix'
-          "
-        />
-
-        <div class="flex justify-center md:col-span-2 lg:col-span-1">
-          <homepage-card
-            [title]="'Célèbrez.'"
-            [text]="
-              'Vous pouvez vous pavaner sans vergogne et glisser un délicat : j’te l’avais dit !'
-            "
-          />
-        </div>
-      </div>
-      <div
-        class="w-36 h-36 bg-gradient-to-b from-primary/30 from-40% to-primary/10 rounded-full -mt-20 ml-8 sm:ml-80 lg:-mt-20 lg:ml-48"
-      ></div>
-
-      <div class="flex items-center justify-center mt-12 hidden lg:block">
-        <div
-          class="text-primary/60 flex items-center justify-center cursor-pointer"
-          (click)="scroll()"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1"
-            stroke="currentColor"
-            class="h-12 w-12 animate-bounce"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div
-  class="h-24 lg:h-36 bg-gradient-to-b from-primary/10 to-white"
-  id="scroll-anchor"
-></div>
-
-<!-- Pourquoi ? -->
-<div class="px-12 mb-24 bg-white">
-  <div class="max-w-6xl mx-auto">
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 mt-24 items-center">
-      <div class="lg:pl-12">
-        <h2 class="text-3xl md:text-4xl font-extrabold mb-12">
-          Pourquoi nous avons imaginé jtelavaisdit ?
-        </h2>
-
-        <p class="mb-6 leading-7">
-          Entre amis, collègues ou en famille, nous aimons prédire des
-          événements, affirmer des choses avec conviction, sur un ton léger,
-          joueur ou plus sérieusement : « Tu vas voir, ça va arriver exactement
-          comme ça ! » ou encore « Je te parie que dans un mois, ceci va arriver
-          ! ».
-        </p>
-
-        <p class="mb-6 leading-7">
-          Sauf que parfois, au moment où quelque chose arrive vraiment, il peut
-          être difficile de se souvenir exactement de ce que nous avons dit ou
-          de prouver que nous avions raison. C’est là que jtelavaisdit entre en
-          jeu : vos affirmations sont datées, conservées et garanties
-          infalsifiables.
-        </p>
-      </div>
-      <div class="flex flex-col lg:pr-12">
-        <div
-          class="w-36 h-36 bg-gradient-to-b from-primary/30 from-40% to-primary/20 rounded-full -mb-20 ml-28 sm:ml-80 lg:-mt-12 lg:ml-56"
-        ></div>
-        <div
-          class="bg-white border border-lightgray p-8 rounded-2xl w-full sm:w-3/4 mb-6 sm:mb-0 z-10"
-        >
-          <div class="flex flex-row mb-12 items-center">
-            <h3 class="basis-1/2 text-2xl font-semibold">Planifiez.</h3>
-            <i
-              class="bi bi-calendar-check basis-1/2 text-right text-primary text-3xl"
-            ></i>
-          </div>
-          <p>
-            Vos affirmations peuvent être révélées à la date de votre choix.
-            Même plus besoin d’y penser, vous êtes averti.e lorsqu’elles sont
-            révélées.
-          </p>
-        </div>
-
-        <div
-          class="bg-white border border-lightgray p-8 rounded-2xl w-full sm:w-3/4 sm:-mt-6 ml-0 sm:ml-32 md:ml-36 lg:ml-24 z-10"
-        >
-          <div class="flex flex-row mb-12 items-center">
-            <h3 class="basis-1/2 text-2xl font-semibold">Partagez.</h3>
-            <i
-              class="bi bi-send basis-1/2 text-right text-primary text-3xl"
-            ></i>
-          </div>
-          <p>
-            Vous pouvez garder vos affirmations rien que pour vous, ou bien
-            définir une liste de destinataires grâce à leurs adresses e-mail.
-          </p>
-        </div>
-
-        <div
-          class="w-24 h-24 bg-gradient-to-b from-primary/50 from-40% to-primary/20 rounded-full -mt-12 ml-12 sm:ml-24 lg:-mt-12 lg:ml-12"
-        ></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="max-w-6xl mx-auto my-24 md:mt-64 md:mb-48">
-  <div class="flex flex-col items-center">
-    <div
-      class="w-36 h-36 bg-gradient-to-b from-primary/20 from-40% to-primary/5 rounded-full -mb-20ml-28 sm:ml-80 lg:-mt-12 lg:-ml-64"
-    ></div>
-    <h2 class="text-3xl md:text-4xl font-extrabold mb-12 w-3/4 text-center">
-      Exprimez vos intuitions. Créez des situations mémorables et amusantes.
-    </h2>
-    <p class="w-3/5 text-center">
-      Transformez vos prédictions en une expérience interactive et amusante.
-      Créez vos affirmations et révélez-les au bon moment pour surprendre vos
-      proches. Avec jtelavaisdit, découvrez une façon ludique de dire... j’te
-      l’avais dit.
-    </p>
-
-    <div class="px-10">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 mt-12">
-        <div
-          class="bg-white border border-lightgray p-8 rounded-2xl mb-6 sm:mb-0 md:max-w-lg mx-auto"
-        >
-          <p class="font-semibold mb-4">
-            Quentin va demander Manon en mariage au Japon
-          </p>
-          <p class="text-sm mb-4 mt-8">
-            Je pense que Quentin va demander Manon en mariage au sommet du Mont
-            Fuji durant leur voyage au Japon. Elle va dire oui, bien entendu !
-          </p>
-
-          <div
-            class="flex flex-row items-center text-xs text-neutral mb-1 mt-8"
-          >
-            <i class="bi bi-clock mr-2 text-primary"></i>
-            <p>Affirmation créée le 30/12/2024</p>
-          </div>
-
-          <div class="flex flex-row items-center text-xs text-neutral mb-1">
-            <i class="bi bi-envelope-open mr-2 text-primary"></i>
-            <p>Révélation automatique prévue le 30/07/2025 à 12h30</p>
-          </div>
-
-          <div class="flex flex-row items-center text-xs text-neutral">
-            <i class="bi bi-people mr-2 text-primary"></i>
-            <p>Révélation à Vianney, Cécile, Maxime, Rémi</p>
-          </div>
-        </div>
-
-        <div
-          class="bg-white border border-lightgray p-8 rounded-2xl mb-6 sm:mb-0 md:max-w-lg mx-auto"
-        >
-          <p class="font-semibold mb-4">
-            Nouvel emplacement pour le rangement des skis
-          </p>
-          <p class="text-sm mb-4 mt-8">
-            Aujourd'hui, j'ai expliqué à Tristan à quel endroit étaient rangés
-            les skis. Je garde ça au chaud pour le jour où il me dira que je ne
-            lui ai jamais dit !
-          </p>
-
-          <div
-            class="flex flex-row items-center text-xs text-neutral mb-1 mt-8"
-          >
-            <i class="bi bi-clock mr-2 text-primary"></i>
-            <p>Affirmation créée le 07/11/2024</p>
-          </div>
-
-          <div class="flex flex-row items-center text-xs text-neutral mb-1">
-            <i class="bi bi-envelope-open mr-2 text-primary"></i>
-            <p>Pas de révélation automatique</p>
-          </div>
-
-          <div class="flex flex-row items-center text-xs text-neutral">
-            <i class="bi bi-people mr-2 text-primary"></i>
-            <p>Révélation à Tristan</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <button
-      (click)="
-        authService.isAuthenticated() ? navigateToStatements() : register()
-      "
-      class="bg-transparent text-primary border border-primary rounded px-8 py-4 mt-12 text-center font-medium transition-all duration-200 ease-in-out hover:bg-gradient-to-br hover:from-start-gradient hover:to-end-gradient hover:text-white"
-    >
-      {{
-        authService.isAuthenticated()
-          ? "Créer une affirmation"
-          : "Créer un compte gratuitement"
-      }}
-    </button>
-  </div>
-</div>
-
-<div class="wave-divider bg-primary">
-  <svg
-    data-name="Layer 1"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 1200 120"
-    preserveAspectRatio="none"
+<div class="bg-white">
+  <div
+    class="bg-gradient-to-b from-primary to-primary/10 relative overflow-hidden px-10"
+    [ngClass]="{ 'lg:mt-16': authService.isAuthenticated() }"
   >
-    <path
-      d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-      class="fill-white bg-white"
-    ></path>
-  </svg>
-</div>
-
-<!-- Affirmations -->
-<div
-  class="bg-gradient-to-b from-primary from-40% to-primary/10 relative overflow-hidden px-10"
->
-  <div class="relative z-10">
-    <div class="max-w-6xl mx-auto pt-24 sm:pt-48 pb-12">
-      <div class="flex flex-row items-center mb-12 sm:mb-24">
-        <h2
-          class="basis-2/3 sm:basis-2/5 text-3xl md:text-4xl font-extrabold text-white lg:pl-12"
-        >
-          Gérez vos affirmations d'une main de maître.
-        </h2>
+    <div class="relative z-10">
+      <div class="max-w-6xl mx-auto pt-24 lg:pt-32 pb-12">
+        <div class="max-w-3xl mx-auto text-center relative">
+          <h1
+            class="text-4xl sm:text-6xl md:text-7xl font-black text-white mb-4"
+          >
+            Jtelavaisdit
+          </h1>
+          <h2 class="text-xl md:text-2xl font-light text-white mb-4">
+            Les sceptiques vont <span class="font-bold">détester</span>. Vous
+            allez <span class="font-bold">adorer</span>.
+          </h2>
+        </div>
         <div class="flex flex-row-reverse">
           <div
-            class="w-12 h-12 bg-gradient-to-b from-start-gradient/70 to-primary rounded-full mr-8 sm:mr-24 lg:mr-64"
+            class="w-12 h-12 bg-gradient-to-b from-primary/30 from-40% to-primary/10 rounded-full -mt-20 ml-8 sm:ml-80 lg:-mt-20 lg:ml-48"
+          ></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-24">
+          <homepage-card
+            [title]="'Créez.'"
+            [text]="
+              'Une affirmation qui décrit, d’après vous, ce qui va se produire'
+            "
+          />
+          <homepage-card
+            [title]="'Révèlez.'"
+            [text]="
+              'Votre affirmation en temps voulu et aux personnes de votre choix'
+            "
+          />
+
+          <div class="flex justify-center md:col-span-2 lg:col-span-1">
+            <homepage-card
+              [title]="'Célèbrez.'"
+              [text]="
+                'Vous pouvez vous pavaner sans vergogne et glisser un délicat : j’te l’avais dit !'
+              "
+            />
+          </div>
+        </div>
+        <div
+          class="w-36 h-36 bg-gradient-to-b from-primary/30 from-40% to-primary/10 rounded-full -mt-20 ml-8 sm:ml-80 lg:-mt-20 lg:ml-48"
+        ></div>
+
+        <div class="flex items-center justify-center mt-12 hidden lg:block">
+          <div
+            class="text-primary/60 flex items-center justify-center cursor-pointer"
+            (click)="scroll()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1"
+              stroke="currentColor"
+              class="h-12 w-12 animate-bounce"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="h-24 lg:h-36 bg-gradient-to-b from-primary/10 to-white"
+    id="scroll-anchor"
+  ></div>
+
+  <!-- Pourquoi ? -->
+  <div class="px-12 mb-24 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 mt-24 items-center">
+        <div class="lg:pl-12">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-12">
+            Pourquoi nous avons imaginé jtelavaisdit ?
+          </h2>
+
+          <p class="mb-6 leading-7">
+            Entre amis, collègues ou en famille, nous aimons prédire des
+            événements, affirmer des choses avec conviction, sur un ton léger,
+            joueur ou plus sérieusement : « Tu vas voir, ça va arriver
+            exactement comme ça ! » ou encore « Je te parie que dans un mois,
+            ceci va arriver ! ».
+          </p>
+
+          <p class="mb-6 leading-7">
+            Sauf que parfois, au moment où quelque chose arrive vraiment, il
+            peut être difficile de se souvenir exactement de ce que nous avons
+            dit ou de prouver que nous avions raison. C’est là que jtelavaisdit
+            entre en jeu : vos affirmations sont datées, conservées et garanties
+            infalsifiables.
+          </p>
+        </div>
+        <div class="flex flex-col lg:pr-12">
+          <div
+            class="w-36 h-36 bg-gradient-to-b from-primary/30 from-40% to-primary/20 rounded-full -mb-20 ml-28 sm:ml-80 lg:-mt-12 lg:ml-56"
+          ></div>
+          <div
+            class="bg-white border border-gray-border p-8 rounded-2xl w-full sm:w-3/4 mb-6 sm:mb-0 z-10"
+          >
+            <div class="flex flex-row mb-12 items-center">
+              <h3 class="basis-1/2 text-2xl font-semibold">Planifiez.</h3>
+              <i
+                class="bi bi-calendar-check basis-1/2 text-right text-primary text-3xl"
+              ></i>
+            </div>
+            <p>
+              Vos affirmations peuvent être révélées à la date de votre choix.
+              Même plus besoin d’y penser, vous êtes averti.e lorsqu’elles sont
+              révélées.
+            </p>
+          </div>
+
+          <div
+            class="bg-white border border-gray-border p-8 rounded-2xl w-full sm:w-3/4 sm:-mt-6 ml-0 sm:ml-32 md:ml-36 lg:ml-24 z-10"
+          >
+            <div class="flex flex-row mb-12 items-center">
+              <h3 class="basis-1/2 text-2xl font-semibold">Partagez.</h3>
+              <i
+                class="bi bi-send basis-1/2 text-right text-primary text-3xl"
+              ></i>
+            </div>
+            <p>
+              Vous pouvez garder vos affirmations rien que pour vous, ou bien
+              définir une liste de destinataires grâce à leurs adresses e-mail.
+            </p>
+          </div>
+
+          <div
+            class="w-24 h-24 bg-gradient-to-b from-primary/50 from-40% to-primary/20 rounded-full -mt-12 ml-12 sm:ml-24 lg:-mt-12 lg:ml-12"
           ></div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto my-24 md:mt-64 md:mb-48 bg-white">
+    <div class="flex flex-col items-center">
       <div
-        class="w-36 h-36 bg-gradient-to-b from-start-gradient/60 to-primary rounded-full ml-16 -mb-16 sm:ml-24 sm:-mb-24 lg:-mb-16 lg:ml-36"
+        class="w-36 h-36 bg-gradient-to-b from-primary/20 from-40% to-primary/5 rounded-full -mb-20ml-28 sm:ml-80 lg:-mt-12 lg:-ml-64"
       ></div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <homepage-icon-card
-          [title]="'Suivi des révélations.'"
-          [text]="
-            'Suivez le temps restant avant que vos affirmations ne soient révélées à vos destinataires.'
-          "
-          [icon]="'bi-clock'"
-        ></homepage-icon-card>
-
-        <homepage-icon-card
-          [title]="'Archivez vos affirmations.'"
-          [text]="
-            'Automatiquement une fois révélées ou manuellement lorsqu’elles ne sont plus d’actualité.'
-          "
-          [icon]="'bi-archive'"
-        ></homepage-icon-card>
-
-        <div class="flex justify-center md:col-span-2 lg:col-span-1 z-10">
-          <homepage-icon-card
-            [title]="'Retrouvez-les facilement.'"
-            [text]="
-              'En recherchant n\'importe quel terme dans le titre, la description ou l\'email du destinataire.'
-            "
-            [icon]="'bi-search'"
-          ></homepage-icon-card>
-        </div>
-      </div>
-      <div class="flex flex-row-reverse">
-        <div
-          class="w-12 h-12 md:w-36 md:h-36 bg-gradient-to-b from-primary/80 to-end-gradient/20 rounded-full mt-8 mr-8 md:mt-16 md:mr-24"
-        ></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="h-24 sm:h-48 bg-gradient-to-b from-primary/10 to-white"></div>
-
-<!-- FAQ -->
-<div class="relative z-10 px-10">
-  <div class="max-w-6xl mx-auto pb-24">
-    <div class="flex flex-row items-center mb-16 lg:mb-24 lg:pl-12">
-      <h2 class="basis-2/3 sm:basis-2/5 text-3xl md:text-4xl font-extrabold">
-        Questions fréquemment posées.
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-12 w-3/4 text-center">
+        Exprimez vos intuitions. Créez des situations mémorables et amusantes.
       </h2>
-    </div>
+      <p class="w-3/5 text-center">
+        Transformez vos prédictions en une expérience interactive et amusante.
+        Créez vos affirmations et révélez-les au bon moment pour surprendre vos
+        proches. Avec jtelavaisdit, découvrez une façon ludique de dire... j’te
+        l’avais dit.
+      </p>
 
-    <div class="lg:px-12">
-      @for (question of questions; track question.id; let idx = $index) {
-      <button
-        class="w-full text-left px-4 py-6 lg:p-8 bg-white border-t font-semibold"
-        (click)="toggleQuestionAccordion(idx)"
-      >
-        <div class="flex">
-          <i
-            class="bi text-primary mr-4"
-            [ngClass]="{
-              'bi-chevron-up': question.isOpen,
-              'bi-chevron-down': !question.isOpen
-            }"
-          ></i>
-          <p>{{ question.title }}</p>
+      <div class="px-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 mt-12">
+          <div
+            class="bg-white border border-gray-border p-8 rounded-2xl mb-6 sm:mb-0 md:max-w-lg mx-auto"
+          >
+            <p class="font-semibold mb-4">
+              Quentin va demander Manon en mariage au Japon
+            </p>
+            <p class="text-sm mb-4 mt-8">
+              Je pense que Quentin va demander Manon en mariage au sommet du
+              Mont Fuji durant leur voyage au Japon. Elle va dire oui, bien
+              entendu !
+            </p>
+
+            <div
+              class="flex flex-row items-center text-xs text-neutral mb-1 mt-8"
+            >
+              <i class="bi bi-clock mr-2 text-primary"></i>
+              <p>Affirmation créée le 30/12/2024</p>
+            </div>
+
+            <div class="flex flex-row items-center text-xs text-neutral mb-1">
+              <i class="bi bi-envelope-open mr-2 text-primary"></i>
+              <p>Révélation automatique prévue le 30/07/2025 à 12h30</p>
+            </div>
+
+            <div class="flex flex-row items-center text-xs text-neutral">
+              <i class="bi bi-people mr-2 text-primary"></i>
+              <p>Révélation à Vianney, Cécile, Maxime, Rémi</p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white border border-gray-border p-8 rounded-2xl mb-6 sm:mb-0 md:max-w-lg mx-auto"
+          >
+            <p class="font-semibold mb-4">
+              Nouvel emplacement pour le rangement des skis
+            </p>
+            <p class="text-sm mb-4 mt-8">
+              Aujourd'hui, j'ai expliqué à Tristan à quel endroit étaient rangés
+              les skis. Je garde ça au chaud pour le jour où il me dira que je
+              ne lui ai jamais dit !
+            </p>
+
+            <div
+              class="flex flex-row items-center text-xs text-neutral mb-1 mt-8"
+            >
+              <i class="bi bi-clock mr-2 text-primary"></i>
+              <p>Affirmation créée le 07/11/2024</p>
+            </div>
+
+            <div class="flex flex-row items-center text-xs text-neutral mb-1">
+              <i class="bi bi-envelope-open mr-2 text-primary"></i>
+              <p>Pas de révélation automatique</p>
+            </div>
+
+            <div class="flex flex-row items-center text-xs text-neutral">
+              <i class="bi bi-people mr-2 text-primary"></i>
+              <p>Révélation à Tristan</p>
+            </div>
+          </div>
         </div>
-      </button>
-
-      @if (question.isOpen) {
-      <div
-        class="p-4 pb-8 lg:px-8 lg:pb-8 transition-all duration-300 ease-in-out"
-      >
-        <p>{{ question.content }}</p>
-        @if (question.link) {
-        <p class="mt-6">
-          <span class="font-semibold">Lien utile</span> :
-          <a [routerLink]="question.link" class="underline text-primary">{{
-            question.linkDescription
-          }}</a>
-        </p>
-        }
       </div>
-      } }
+
+      <button
+        (click)="
+          authService.isAuthenticated() ? navigateToStatements() : register()
+        "
+        class="bg-transparent text-primary border border-primary rounded px-8 py-4 mt-12 text-center font-medium transition-all duration-200 ease-in-out hover:bg-gradient-to-br hover:from-start-gradient hover:to-end-gradient hover:text-white"
+      >
+        {{
+          authService.isAuthenticated()
+            ? "Créer une affirmation"
+            : "Créer un compte gratuitement"
+        }}
+      </button>
     </div>
   </div>
-</div>
 
-<div class="max-w-6xl mx-auto mt-12 mb-24 md:mb-48">
-  <div class="flex flex-col items-center">
-    <div
-      class="w-36 h-36 bg-gradient-to-b from-primary/20 from-40% to-primary/5 rounded-full -mb-20 ml-28 sm:ml-80 lg:-mt-12 lg:-ml-64"
-    ></div>
-    <h2 class="text-3xl md:text-4xl font-extrabold mb-12 w-3/4 text-center">
-      Le fonctionnement de jtelavaisdit n'est pas
-      <span
-        class="bg-gradient-to-b from-start-gradient to-end-gradient/60 inline-block text-transparent bg-clip-text"
-        >encore</span
-      >
-      clair pour vous ?
-    </h2>
-    <p class="w-3/5 text-center">
-      Aucun souci. Nous sommes à votre disposition pour répondre à vos
-      questions. N'hésitez pas à prendre contact avec nous et à nous détailler
-      vos interrogations. Nous vous invitons également à essayer de manipuler
-      l'application pour mieux l'appréhender.
-    </p>
-    <button
-      (click)="navigateToContact()"
-      class="bg-transparent text-primary border border-primary rounded px-8 py-4 mt-12 text-center font-medium transition-all duration-200 ease-in-out hover:bg-gradient-to-br hover:from-start-gradient hover:to-end-gradient hover:text-white"
+  <div class="wave-divider bg-primary">
+    <svg
+      data-name="Layer 1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
     >
-      Nous contacter
-    </button>
+      <path
+        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+        class="fill-white bg-white"
+      ></path>
+    </svg>
+  </div>
+
+  <!-- Affirmations -->
+  <div
+    class="bg-gradient-to-b from-primary from-40% to-primary/10 relative overflow-hidden px-10"
+  >
+    <div class="relative z-10">
+      <div class="max-w-6xl mx-auto pt-24 sm:pt-48 pb-12">
+        <div class="flex flex-row items-center mb-12 sm:mb-24">
+          <h2
+            class="basis-2/3 sm:basis-2/5 text-3xl md:text-4xl font-extrabold text-white lg:pl-12"
+          >
+            Gérez vos affirmations d'une main de maître.
+          </h2>
+          <div class="flex flex-row-reverse">
+            <div
+              class="w-12 h-12 bg-gradient-to-b from-start-gradient/70 to-primary rounded-full mr-8 sm:mr-24 lg:mr-64"
+            ></div>
+          </div>
+        </div>
+        <div
+          class="w-36 h-36 bg-gradient-to-b from-start-gradient/60 to-primary rounded-full ml-16 -mb-16 sm:ml-24 sm:-mb-24 lg:-mb-16 lg:ml-36"
+        ></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <homepage-icon-card
+            [title]="'Suivi des révélations.'"
+            [text]="
+              'Suivez le temps restant avant que vos affirmations ne soient révélées à vos destinataires.'
+            "
+            [icon]="'bi-clock'"
+          ></homepage-icon-card>
+
+          <homepage-icon-card
+            [title]="'Archivez vos affirmations.'"
+            [text]="
+              'Automatiquement une fois révélées ou manuellement lorsqu’elles ne sont plus d’actualité.'
+            "
+            [icon]="'bi-archive'"
+          ></homepage-icon-card>
+
+          <div class="flex justify-center md:col-span-2 lg:col-span-1 z-10">
+            <homepage-icon-card
+              [title]="'Retrouvez-les facilement.'"
+              [text]="
+                'En recherchant n\'importe quel terme dans le titre, la description ou l\'email du destinataire.'
+              "
+              [icon]="'bi-search'"
+            ></homepage-icon-card>
+          </div>
+        </div>
+        <div class="flex flex-row-reverse">
+          <div
+            class="w-12 h-12 md:w-36 md:h-36 bg-gradient-to-b from-primary/80 to-end-gradient/20 rounded-full mt-8 mr-8 md:mt-16 md:mr-24"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="h-24 sm:h-48 bg-gradient-to-b from-primary/10 to-white"></div>
+
+  <!-- FAQ -->
+  <div class="relative z-10 px-10">
+    <div class="max-w-6xl mx-auto pb-24">
+      <div class="flex flex-row items-center mb-16 lg:mb-24 lg:pl-12">
+        <h2 class="basis-2/3 sm:basis-2/5 text-3xl md:text-4xl font-extrabold">
+          Questions fréquemment posées.
+        </h2>
+      </div>
+
+      <div class="lg:px-12">
+        @for (question of questions; track question.id; let idx = $index) {
+        <button
+          class="w-full text-left px-4 py-6 lg:p-8 bg-white border-t font-semibold"
+          (click)="toggleQuestionAccordion(idx)"
+        >
+          <div class="flex">
+            <i
+              class="bi text-primary mr-4"
+              [ngClass]="{
+                'bi-chevron-up': question.isOpen,
+                'bi-chevron-down': !question.isOpen
+              }"
+            ></i>
+            <p>{{ question.title }}</p>
+          </div>
+        </button>
+
+        @if (question.isOpen) {
+        <div
+          class="p-4 pb-8 lg:px-8 lg:pb-8 transition-all duration-300 ease-in-out"
+        >
+          <p>{{ question.content }}</p>
+          @if (question.link) {
+          <p class="mt-6">
+            <span class="font-semibold">Lien utile</span> :
+            <a [routerLink]="question.link" class="underline text-primary">{{
+              question.linkDescription
+            }}</a>
+          </p>
+          }
+        </div>
+        } }
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto mt-12 pb-24 md:pb-48">
+    <div class="flex flex-col items-center">
+      <div
+        class="w-36 h-36 bg-gradient-to-b from-primary/20 from-40% to-primary/5 rounded-full -mb-20 ml-28 sm:ml-80 lg:-mt-12 lg:-ml-64"
+      ></div>
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-12 w-3/4 text-center">
+        Le fonctionnement de jtelavaisdit n'est pas
+        <span
+          class="bg-gradient-to-b from-start-gradient to-end-gradient/60 inline-block text-transparent bg-clip-text"
+          >encore</span
+        >
+        clair pour vous ?
+      </h2>
+      <p class="w-3/5 text-center">
+        Aucun souci. Nous sommes à votre disposition pour répondre à vos
+        questions. N'hésitez pas à prendre contact avec nous et à nous détailler
+        vos interrogations. Nous vous invitons également à essayer de manipuler
+        l'application pour mieux l'appréhender.
+      </p>
+      <button
+        (click)="navigateToContact()"
+        class="bg-transparent text-primary border border-primary rounded px-8 py-4 mt-12 text-center font-medium transition-all duration-200 ease-in-out hover:bg-gradient-to-br hover:from-start-gradient hover:to-end-gradient hover:text-white"
+      >
+        Nous contacter
+      </button>
+    </div>
   </div>
 </div>

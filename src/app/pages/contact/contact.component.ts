@@ -8,7 +8,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { environment } from '../../../environments/environment';
+import { ContactRequest } from './contact-request.model';
+import { ContactService } from './contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -20,6 +21,7 @@ export class ContactComponent {
   protected authService = inject(AuthService);
   private formBuilder = inject(FormBuilder);
   private toastrService = inject(ToastrService);
+  private contactService = inject(ContactService);
 
   @ViewChild('ngContactForm') ngContactForm!: NgForm;
 
@@ -29,13 +31,34 @@ export class ContactComponent {
   });
 
   submit() {
-    console.log(this.contactForm.value);
-    console.log(environment.apiUrl);
-    this.toastrService.success(
-      'Votre message a bien été envoyé. Nous reviendrons vers vous rapidement.',
-      'Succès'
-    );
-    this.contactForm.reset();
-    this.ngContactForm.resetForm();
+    if (!this.contactForm.valid) {
+      this.toastrService.error(
+        "Le formulaire de contact n'est pas valide",
+        'Erreur'
+      );
+      return;
+    }
+
+    const contactRequest: ContactRequest = {
+      email: this.contactForm.controls['email'].value?.trim() as string,
+      message: this.contactForm.controls['message'].value?.trim() as string,
+    };
+
+    this.contactService.sendContactForm(contactRequest).subscribe({
+      next: () => {
+        this.ngContactForm.resetForm();
+        this.contactForm.reset();
+        this.toastrService.success(
+          'Votre message a bien été envoyé. Nous reviendrons vers vous rapidement.',
+          'Succès'
+        );
+      },
+      error: () => {
+        this.toastrService.error(
+          "Une erreur est survenue lors de l'envoi du formulaire de contact. Veuillez réessayer plus tard.",
+          'Erreur'
+        );
+      },
+    });
   }
 }

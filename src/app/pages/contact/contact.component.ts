@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -29,6 +30,7 @@ export class ContactComponent {
 
   submit() {
     console.log(this.contactForm.value);
+    console.log(environment.apiUrl);
     this.toastrService.success(
       'Votre message a bien été envoyé. Nous reviendrons vers vous rapidement.',
       'Succès'

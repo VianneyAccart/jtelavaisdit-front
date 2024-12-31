@@ -11,13 +11,22 @@ FROM base AS dev
 COPY . .
 CMD ["npm", "run", "start"]
 
-# Build Stage
-FROM base AS build
+# Staging Stage
+FROM base AS staging
+COPY . .
+RUN npm run build:staging
+
+FROM nginx:alpine AS nginx-staging
+COPY --from=staging /app/dist/jtelavaisdit-front/browser /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+
+# Production Stage
+FROM base AS production
 COPY . .
 RUN npm run build
 
-# Production Stage
-FROM nginx:alpine AS prod
-COPY --from=build /app/dist/jtelavaisdit-front/browser /usr/share/nginx/html
+FROM nginx:alpine AS nginx-production
+COPY --from=production /app/dist/jtelavaisdit-front/browser /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80

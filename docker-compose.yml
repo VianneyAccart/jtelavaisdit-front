@@ -7,17 +7,13 @@ services:
     volumes:
       - .:/app
       - /app/node_modules # Prevent node_modules conflicts
-    networks:
-      - traefik
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.jtelavaisdit-client-dev.rule=Host(`localhost`) && PathPrefix(`/`)"
-      - "traefik.http.services.jtelavaisdit-client-dev.loadbalancer.server.port=4200" # Because we are using ng serve which uses port 4200 by default
+    ports:
+      - 4200:4200
   
   jtelavaisdit-front-staging:
     build:
       context: .
-      target: prod
+      target: staging
     container_name: jtelavaisdit-front-staging
     restart: unless-stopped
     networks:
@@ -33,7 +29,7 @@ services:
   jtelavaisdit-front-prod:
     build:
       context: .
-      target: prod
+      target: production
     container_name: jtelavaisdit-front-prod
     restart: unless-stopped
     networks:

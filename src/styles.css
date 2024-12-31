@@ -1,4 +1,5 @@
-@import 'bootstrap-icons/font/bootstrap-icons.min.css';
+@import "bootstrap-icons/font/bootstrap-icons.min.css";
+@import "ngx-toastr/toastr";
 
 @tailwind base;
 @tailwind components;
@@ -57,3 +58,87 @@ body {
   font-family: "Raleway", sans-serif;
   color: #3c3c3c;
 }
+
+.toast-container .ngx-toastr {
+  position: relative;
+  overflow: initial;
+  margin: 0 0 6px;
+  padding: 15px 15px 15px 50px;
+  border-radius: 3px 3px 3px 3px;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  box-shadow: 0 0 12px rgba(153, 153, 153, 0.26); 
+  color: #000000; 
+  border-left: 8px solid;
+}
+
+.toast-container .ngx-toastr:hover {
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(153, 153, 153, 0.26); 
+  opacity: 1;
+}
+
+.toast-success {
+  font-family: 'Raleway', sans-serif; 
+  font-size: 14px;
+  line-height: 1.5;
+  color: #155724 !important; 
+  background-color: #d4edda !important; 
+  border-left-color: #28a745 !important; 
+  background-image: url(./assets/images/ngx-toastr/success_icon.png);
+}
+
+.toast-success > .toast-close-button {
+  color: #155724 !important; 
+}
+
+.toast-error {
+  font-family: 'Raleway', sans-serif; 
+  font-size: 14px;
+  line-height: 1.5;
+  color: #721c24 !important; 
+  background-color: #f8d7da !important; 
+  border-left-color: #dc3545 !important;
+  background-image: url(./assets/images/ngx-toastr/error_icon.png);
+}
+
+.toast-error > .toast-close-button {
+  color: #721c24 !important; 
+}
+
+.toast-warning {
+  font-family: 'Raleway', sans-serif; 
+  font-size: 14px;
+  line-height: 1.5;
+  color: #856404 !important; 
+  background-color: #fff3cd !important; 
+  border-left-color: #fd7e14 !important; 
+  background-image: url(./assets/images/ngx-toastr/warning_icon.png);
+}
+
+.toast-warning > .toast-close-button {
+  color: #856404 !important; 
+}
+
+.toast-info {
+  font-family: 'Raleway', sans-serif; 
+  font-size: 14px;
+  line-height: 1.5;
+  color: #004085 !important; 
+  background-color: #cce5ff !important; 
+  border-left-color: #007bff !important; 
+  background-image: url(./assets/images/ngx-toastr/info_icon.png);
+}
+
+.toast-info > .toast-close-button {
+  color: #004085 !important; 
+}
+
+.toast-title {
+  font-family: 'Raleway', sans-serif; 
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+

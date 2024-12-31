@@ -4,6 +4,8 @@ import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app.routes';
 import { provideNgcCookieConsent } from 'ngx-cookieconsent';
 import { cookieConfig } from './cookies.config';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,5 +15,11 @@ export const appConfig: ApplicationConfig = {
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled' })
     ),
     provideNgcCookieConsent(cookieConfig),
+    provideAnimations(),
+    provideToastr({
+      positionClass: 'toast-bottom-right',
+      timeOut: 10000,
+      progressBar: true,
+    }),
   ],
 };

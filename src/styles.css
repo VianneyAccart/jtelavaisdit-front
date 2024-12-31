@@ -86,7 +86,7 @@ body {
   color: #155724 !important; 
   background-color: #d4edda !important; 
   border-left-color: #28a745 !important; 
-  background-image: url(./assets/images/ngx-toastr/success_icon.png);
+  background-image: url(./assets/images/ngx-toastr/success_icon.png)!important;
 }
 
 .toast-success > .toast-close-button {
@@ -100,7 +100,7 @@ body {
   color: #721c24 !important; 
   background-color: #f8d7da !important; 
   border-left-color: #dc3545 !important;
-  background-image: url(./assets/images/ngx-toastr/error_icon.png);
+  background-image: url(./assets/images/ngx-toastr/error_icon.png)!important;
 }
 
 .toast-error > .toast-close-button {
@@ -114,7 +114,7 @@ body {
   color: #856404 !important; 
   background-color: #fff3cd !important; 
   border-left-color: #fd7e14 !important; 
-  background-image: url(./assets/images/ngx-toastr/warning_icon.png);
+  background-image: url(./assets/images/ngx-toastr/warning_icon.png)!important;
 }
 
 .toast-warning > .toast-close-button {
@@ -128,7 +128,7 @@ body {
   color: #004085 !important; 
   background-color: #cce5ff !important; 
   border-left-color: #007bff !important; 
-  background-image: url(./assets/images/ngx-toastr/info_icon.png);
+  background-image: url(./assets/images/ngx-toastr/info_icon.png)!important;
 }
 
 .toast-info > .toast-close-button {

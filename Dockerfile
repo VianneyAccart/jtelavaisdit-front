@@ -2,8 +2,6 @@
 FROM node:22.12.0-slim AS base
 WORKDIR /app
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
 
 # Development Stage (hot reload)
@@ -11,22 +9,15 @@ FROM base AS dev
 COPY . .
 CMD ["npm", "run", "start"]
 
-# Staging Stage
-FROM base AS staging
+# Build Stage
+FROM base AS build
 COPY . .
-RUN npm run build:staging
+# Ajout d'un argument pour choisir l'environnement lors du build
+ARG CONFIGURATION=production
+RUN npm run build:${CONFIGURATION}
 
-FROM nginx:alpine AS nginx-staging
-COPY --from=staging /app/dist/jtelavaisdit-front/browser /usr/share/nginx/html
+# Runtime Stage with nginx
+FROM nginx:alpine AS runtime
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
-
-# Production Stage
-FROM base AS production
-COPY . .
-RUN npm run build
-
-FROM nginx:alpine AS nginx-production
-COPY --from=production /app/dist/jtelavaisdit-front/browser /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist/jtelavaisdit-front/browser /usr/share/nginx/html
 EXPOSE 80

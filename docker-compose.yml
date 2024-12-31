@@ -13,7 +13,9 @@ services:
   jtelavaisdit-front-staging:
     build:
       context: .
-      target: staging
+      target: runtime
+      args:
+        CONFIGURATION: staging
     container_name: jtelavaisdit-front-staging
     restart: unless-stopped
     networks:
@@ -29,7 +31,9 @@ services:
   jtelavaisdit-front-prod:
     build:
       context: .
-      target: production
+      target: runtime
+      args:
+        CONFIGURATION: production
     container_name: jtelavaisdit-front-prod
     restart: unless-stopped
     networks:
